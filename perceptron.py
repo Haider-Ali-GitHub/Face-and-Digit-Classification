@@ -1,64 +1,60 @@
-# perceptron.py
-# -------------
-# Licensing Information: You are free to use and extend these projects for educational purposes.
-# The Pacman AI projects were developed at UC Berkeley, by John DeNero and Dan Klein.
-# More info at http://inst.eecs.berkeley.edu/~cs188/sp09/pacman.html
+import numpy as np
 
-# Perceptron implementation
-import util
-
-class Perceptron:
+def perceptron_train(X, y, epochs=1, learning_rate=0.01):
     """
-    Perceptron classifier.
-    
-    Note that the variable 'datum' in this code refers to a counter of features
-    (not to a raw samples.Datum).
+    Trains a perceptron model.
+
+    Args:
+    X (np.array): The input features, each row representing an image (flattened).
+    y (np.array): The target labels corresponding to each image.
+    epochs (int): Number of times to iterate over the training dataset.
+    learning_rate (float): The step size at each iteration.
+
+    Returns:
+    np.array: The weights after training.
     """
-    def __init__(self, legalLabels, max_iterations):
-        self.legalLabels = legalLabels
-        self.type = "perceptron"
-        self.max_iterations = max_iterations
-        self.weights = {label: util.Counter() for label in legalLabels}
+    # Initialize weights to zero
+    weights = np.zeros(X.shape[1] + 1)  # +1 for the bias term
 
-    def setWeights(self, weights):
-        assert len(weights) == len(self.legalLabels), "Weights and legal labels must match in length"
-        self.weights = weights
-        
-    def train(self, trainingData, trainingLabels, validationData, validationLabels):
-        """
-        The training loop for the perceptron passes through the training data several
-        times and updates the weight vector for each label based on classification errors.
-        """
-        self.features = list(trainingData[0].keys())  # could be useful later
-        
-        for iteration in range(self.max_iterations):
-            print(f"Starting iteration {iteration}...")
-            for i in range(len(trainingData)):
-                actual, guess = trainingLabels[i], self.classify([trainingData[i]])[0]
-                if actual != guess:
-                    self.weights[actual] = self.weights[actual] + trainingData[i]
-                    self.weights[guess] = self.weights[guess] - trainingData[i]
-    
-    def classify(self, data):
-        """
-        Classifies each datum as the label that most closely matches the prototype vector
-        for that label.
-        """
-        guesses = []
-        for datum in data:
-            vectors = util.Counter()
-            for label in self.legalLabels:
-                vectors[label] = self.weights[label] * datum
-            guesses.append(vectors.argMax())
-        return guesses
+    # Training loop
+    for _ in range(epochs):
+        for i in range(len(X)):
+            # Calculate the dot product + bias
+            activation = np.dot(X[i], weights[1:]) + weights[0]
+            # Apply the step function
+            prediction = 1 if activation >= 0 else 0
+            # Update weights and bias
+            weights[1:] += learning_rate * (y[i] - prediction) * X[i]
+            weights[0] += learning_rate * (y[i] - prediction)
+    return weights
 
-    def findHighWeightFeatures(self, label):
-        """
-        Returns a list of the 100 features with the greatest weight for some label.
-        """
-        featuresWeights = []
-        # Example of defining high weight features -- needs real implementation
-        if label in self.weights:
-            featuresWeights = self.weights[label].most_common(100)  # Assuming Counter supports most_common
+def perceptron_predict(X, weights):
+    """
+    Make predictions with a perceptron model.
 
-        return featuresWeights
+    Args:
+    X (np.array): The input features, each row representing an image (flattened).
+    weights (np.array): The trained weights.
+
+    Returns:
+    np.array: Predictions for each input.
+    """
+    # Calculate the dot product + bias for each input
+    activations = np.dot(X, weights[1:]) + weights[0]
+    # Apply the step function
+    return np.where(activations >= 0, 1, 0)
+
+# Example of training and predicting
+# Flatten the images for perceptron input
+flattened_images = [np.array(image).flatten() for image in images]  # Assuming 'images' is available from the loading function
+flattened_images = np.array(flattened_images)
+binary_labels = np.array(labels)  # Assuming binary labels and 'labels' is available
+
+# Convert labels from string or other types to integers if needed
+# binary_labels = np.array([int(label) for label in labels])
+
+# Train the perceptron
+weights = perceptron_train(flattened_images, binary_labels, epochs=10, learning_rate=0.01)
+
+# Predict using the trained model
+predictions = perceptron_predict(flattened_images, weights)
