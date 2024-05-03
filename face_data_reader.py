@@ -44,44 +44,26 @@ def read_image(filename):
 
     return images
 
-result = read_label('data/facedata/facedatatestlabels')
 print()
 print("TEST LABELS AND IMAGES")
-print("These are all of the labels for the faces:")
-print()
+result = read_label('data/facedata/facedatatestlabels')
 print("These are how many labels we have:", len(result))
-
 result = read_image('data/facedata/facedatatest')
-print()
-print("These are all of the images:")
-print()
 print("These are how many images we have:", len(result))
 print("-------------------------------------------------")
 
-result = read_label('data/facedata/facedatatrainlabels')
 print()
 print("TRAIN LABELS AND IMAGES")
-print("These are all of the labels for the faces:")
-print()
+result = read_label('data/facedata/facedatatrainlabels')
 print("These are how many labels we have:", len(result))
-
 result = read_image('data/facedata/facedatatrain')
-print()
-print("These are all of the images:")
-print()
 print("These are how many images we have:", len(result))
 print("-------------------------------------------------")
 
-result = read_label('data/facedata/facedatavalidationlabels')
 print()
 print("VALIDATION LABELS AND IMAGES")
-print("These are all of the labels for the faces:")
-print()
+result = read_label('data/facedata/facedatavalidationlabels')
 print("These are how many labels we have:", len(result))
-
 result = read_image('data/facedata/facedatavalidation')
-print()
-print("These are all of the images:")
-print()
 print("These are how many images we have:", len(result))
 
