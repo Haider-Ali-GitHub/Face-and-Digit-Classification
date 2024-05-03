@@ -26,7 +26,7 @@ def read_image(filename):
             stripped_line = line.strip()
 
             # Check if the current image is complete
-            if found_first_line and len(current_image) == 67:
+            if found_first_line and len(current_image) == 68:
                 images.append(current_image)
                 current_image = []          # Reset for the next image
                 found_first_line = False    # Reset the flag
@@ -39,19 +39,19 @@ def read_image(filename):
                 current_image.append(stripped_line)
 
     # Append any final image that may not have been appended in the loop
-    if current_image and len(current_image) == 67:
+    if current_image and len(current_image) == 68:
         images.append(current_image)
 
     return images
 
-result = read_label('data/facedata/facedatatestlabels')
+result = read_label('data/facedata/facedatavalidationlabels')
 print()
 print("These are all of the labels for the faces:")
 print(result)
 print()
 print("These are how many labels we have:", len(result))
 
-result = read_image('data/facedata/facedatatest')
+result = read_image('data/facedata/facedatavalidation')
 print()
 print("These are all of the images:")
 #print(result)
