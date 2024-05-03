@@ -1,72 +1,67 @@
-def read_label(filename):
-    """
-    returns an array of all of the labels for the images
-    """
-    with open(filename, 'r') as file:
-        lines = file.readlines()
-    return [line.strip() for line in lines]
+import numpy as np
+from random import sample
+import math
+import time
+import timeit
+import matplotlib.pyplot as plt
 
-def read_image(filename):
-    """
-    Reads and returns a list of images represented as lists of lines.
-    Assumes each image starts with a non-empty line, followed by 66 more lines.
+def read_data(file_name, size):
+    image_size = size
+    num_images = 0
+    numbers = []
+    with open(file_name) as fp:
+        line = fp.readline()
+        count_rows = 0
+        image = []
+        while line:
+            row = []
+            for c in line:
+                if c == ' ':
+                    row.append('0')
+                else:
+                    row.append('1')
+            row.pop(len(row) - 1)
+            image.append(row)
 
-    Args:
-        filename: The path to the image file.
+            count_rows += 1
+            if count_rows == image_size:
+                count_rows = 0
+                numbers.append(image)
+                num_images += 1
+                image = []
+            line = fp.readline()
+    return numbers
 
-    Returns:
-        A list of images, where each image is a list of lines.
-    """
-    images = []
-    current_image = []
-    found_first_line = False
-    size = 68  # Total lines per image including the starting line
-    line_count = 0  # Count actual lines processed for each image
+def read_labels(file_name):
+    labels = []
+    num_labels = 0
+    with open(file_name) as fp:
+        line = fp.readline()
+        while line:
+            line = line[:-1]
+            labels.append(line)
+            line = fp.readline()
+            num_labels += 1
+    return labels
 
-    with open(filename, 'r') as file:
-        for line_number, line in enumerate(file, start=1):
-            stripped_line = line.strip()
-            if not found_first_line:
-                if stripped_line:  # Start new image on first non-empty line
-                    found_first_line = True
-                    current_image.append(stripped_line)
-                    line_count = 1
-            else:
-                current_image.append(stripped_line)
-                line_count += 1
-                if line_count == size:  # Check if current image has reached its expected size
-                    images.append(current_image)
-                    current_image = []
-                    found_first_line = False
-                    line_count = 0
-                    print(f"Image added at line {line_number}, total images: {len(images)}")
 
-    # Handle the last image in the file
-    if current_image and line_count == size:
-        images.append(current_image)
-        print(f"Final image added at line {line_number}, total images: {len(images)}")
-
-    return images
-print()
+# Example function usage
 print("TEST LABELS AND IMAGES")
-result = read_label('data/facedata/facedatatestlabels')
-print("These are how many labels we have:", len(result))
-result = read_image('data/facedata/facedatatest')
-print("These are how many images we have:", len(result))
+test_labels = read_labels('data/facedata/facedatatestlabels')
+print("These are how many labels we have:", len(test_labels))
+test_images = read_data('data/facedata/facedatatest', 70) 
+print("These are how many images we have:", len(test_images))
 print("-------------------------------------------------")
 
-print()
 print("TRAIN LABELS AND IMAGES")
-result = read_label('data/facedata/facedatatrainlabels')
-print("These are how many labels we have:", len(result))
-result = read_image('data/facedata/facedatatrain')
-print("These are how many images we have:", len(result))
+train_labels = read_labels('data/facedata/facedatatrainlabels')
+print("These are how many labels we have:", len(train_labels))
+train_images = read_data('data/facedata/facedatatrain', 70)  
+print("These are how many images we have:", len(train_images))
 print("-------------------------------------------------")
 
-print()
 print("VALIDATION LABELS AND IMAGES")
-result = read_label('data/facedata/facedatavalidationlabels')
-print("These are how many labels we have:", len(result))
-result = read_image('data/facedata/facedatavalidation')
-print("These are how many images we have:", len(result))
-
+validation_labels = read_labels('data/facedata/facedatavalidationlabels')
+print("These are how many labels we have:", len(validation_labels))
+validation_images = read_data('data/facedata/facedatavalidation', 70)  
+print("These are how many images we have:", len(validation_images))

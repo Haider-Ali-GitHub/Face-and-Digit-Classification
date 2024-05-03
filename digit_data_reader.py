@@ -1,80 +1,67 @@
-def load_images(file_path):
-    """
-    Loads images from a file and converts them to a list of 2D pixel representations.
+import numpy as np
+from random import sample
+import math
+import time
+import timeit
+import matplotlib.pyplot as plt
 
-    Args:
-        file_path: Path to the image file.
+def read_data(file_name, size):
+    image_size = size
+    num_images = 0
+    numbers = []
+    with open(file_name) as fp:
+        line = fp.readline()
+        count_rows = 0
+        image = []
+        while line:
+            row = []
+            for c in line:
+                if c == ' ':
+                    row.append('0')
+                else:
+                    row.append('1')
+            row.pop(len(row) - 1)
+            image.append(row)
 
-    Returns:
-        A list of images, where each image is a list of rows, and each row is a list of pixel values.
-    """
+            count_rows += 1
+            if count_rows == image_size:
+                count_rows = 0
+                numbers.append(image)
+                num_images += 1
+                image = []
+            line = fp.readline()
+    return numbers
 
-    with open(file_path, 'r') as file:
-        lines = file.readlines()
-
-    # Calculate the maximum length of any line
-    max_length = max(len(line.rstrip()) for line in lines if line.strip())
-
-    # Normalize, segment into blocks, and handle potential errors
-    digit_blocks = []
-    current_block = []
-    for line in lines:
-        normalized_line = line.rstrip().ljust(max_length)
-
-        # Error handling: Check for inconsistent lengths within a digit block
-        if len(normalized_line) != max_length:
-            raise ValueError(f"Inconsistent line length. Expected {max_length}, got {len(normalized_line)}")
-
-        # Error handling: Ensure only valid characters (+, #, or space) are present
-        if not all(char in ['+', '#', ' '] for char in normalized_line):
-            raise ValueError(f"Unexpected characters in image data: {normalized_line}")
-
-        if line.strip():  # Non-empty line
-            current_block.append(normalized_line)
-        else:  # Empty line signals the end of a digit block
-            if current_block:  # Only append if the block has content
-                digit_blocks.append(current_block)
-                current_block = []
-
-
-    return digit_blocks
-
-
-
-def load_labels(file_path):
-    # Read the contents of the file
-    with open(file_path, 'r') as file:
-        labels = file.readlines()
-        
-    # Remove whitespace and return labels
-    return [label.strip() for label in labels]
-
-def ascii_to_binary(digit_blocks):
-    binary_images = []
-    for block in digit_blocks:
-        binary_image = []
-        for line in block:
-            binary_line = [1 if char in ['+', '#'] else 0 for char in line]
-            binary_image.append(binary_line)
-        binary_images.append(binary_image)
-    return binary_images
+def read_labels(file_name):
+    labels = []
+    num_labels = 0
+    with open(file_name) as fp:
+        line = fp.readline()
+        while line:
+            line = line[:-1]
+            labels.append(line)
+            line = fp.readline()
+            num_labels += 1
+    return labels
 
 
-# Assume this is how you might call the functions after adjusting the paths to match your file system
-result = load_images('data/digitdata/testimages')
-print("Number of digit TEST images loaded:", len(result))
+# Example function usage
+print("TEST LABELS AND IMAGES")
+test_labels = read_labels('data/digitdata/testlabels')
+print("These are how many labels we have:", len(test_labels))
+test_images = read_data('data/digitdata/testimages', 28) 
+print("These are how many images we have:", len(test_images))
+print("-------------------------------------------------")
 
-labels_result = load_labels('data/digitdata/testlabels')
-print("Number of TEST labels loaded:", len(labels_result))
+print("TRAIN LABELS AND IMAGES")
+train_labels = read_labels('data/digitdata/traininglabels')
+print("These are how many labels we have:", len(train_labels))
+train_images = read_data('data/digitdata/trainingimages', 28)  
+print("These are how many images we have:", len(train_images))
+print("-------------------------------------------------")
 
-TrainImage = load_images('data/digitdata/trainingimages')
-print("Number of digit TRAIN images loaded:", len(TrainImage))
-
-TrainLabel = load_labels('data/digitdata/traininglabels')
-print("Number of TRAIN labels loaded:", len(TrainLabel))
-
-ValidationImage = load_images('data/digitdata/validationimages')
-print("Number of digit VALIDATION images loaded:", len(ValidationImage))
-
-ValidationLabel = load_labels('data/digitdata/validationlabels')
-print("Number of VALIDATION labels loaded:", len(ValidationLabel))
+print("VALIDATION LABELS AND IMAGES")
+validation_labels = read_labels('data/digitdata/validationlabels')
+print("These are how many labels we have:", len(validation_labels))
+validation_images = read_data('data/digitdata/validationimages', 28)  
+print("These are how many images we have:", len(validation_images))
