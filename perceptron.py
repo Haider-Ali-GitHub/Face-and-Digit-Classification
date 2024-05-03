@@ -1,60 +1,47 @@
-import numpy as np
+class Perceptron:
+    def __init__(self, legalLabels, max_iterations):
+        self.legalLabels = legalLabels
+        self.type = "perceptron"
+        self.max_iterations = max_iterations
+        self.weights = {label: {} for label in legalLabels}
 
-def perceptron_train(X, y, epochs=1, learning_rate=0.01):
-    """
-    Trains a perceptron model.
+    def train(self, trainingData, trainingLabels, validationData, validationLabels):
+        for iteration in range(self.max_iterations):
+            print(f"Starting iteration {iteration}...")
+            for features, true_label in zip(trainingData, trainingLabels):
+                # Compute the dot product of weights and features for each label
+                scores = {label: sum(features[f] * self.weights[label].get(f, 0) for f in features) for label in self.legalLabels}
+                # Determine the best guess label
+                best_guess_label = max(scores, key=scores.get)
+                # Update weights if the prediction is wrong
+                if true_label != best_guess_label:
+                    for f in features:
+                        if f in self.weights[true_label]:
+                            self.weights[true_label][f] += features[f]
+                        else:
+                            self.weights[true_label][f] = features[f]
+                        
+                        if f in self.weights[best_guess_label]:
+                            self.weights[best_guess_label][f] -= features[f]
+                        else:
+                            self.weights[best_guess_label][f] = -features[f]
 
-    Args:
-    X (np.array): The input features, each row representing an image (flattened).
-    y (np.array): The target labels corresponding to each image.
-    epochs (int): Number of times to iterate over the training dataset.
-    learning_rate (float): The step size at each iteration.
+    def test(self, data):
+        guesses = []
+        for datum in data:
+            scores = {label: sum(datum[f] * self.weights[label].get(f, 0) for f in datum) for label in self.legalLabels}
+            best_label = max(scores, key=scores.get)
+            guesses.append(best_label)
+        return guesses
 
-    Returns:
-    np.array: The weights after training.
-    """
-    # Initialize weights to zero
-    weights = np.zeros(X.shape[1] + 1)  # +1 for the bias term
+    # def findHighWeightFeatures(self, label, top_k=100):
+    #     if label in self.weights:
+    #         # Get features with the highest weights for the given label
+    #         features_weights = list(self.weights[label].items())
+    #         # Sort by weight in descending order
+    #         features_weights.sort(key=lambda x: x[1], reverse=True)
+    #         # Return the top k features
+    #         return features_weights[:top_k]
+    #     else:
+    #         return []
 
-    # Training loop
-    for _ in range(epochs):
-        for i in range(len(X)):
-            # Calculate the dot product + bias
-            activation = np.dot(X[i], weights[1:]) + weights[0]
-            # Apply the step function
-            prediction = 1 if activation >= 0 else 0
-            # Update weights and bias
-            weights[1:] += learning_rate * (y[i] - prediction) * X[i]
-            weights[0] += learning_rate * (y[i] - prediction)
-    return weights
-
-def perceptron_predict(X, weights):
-    """
-    Make predictions with a perceptron model.
-
-    Args:
-    X (np.array): The input features, each row representing an image (flattened).
-    weights (np.array): The trained weights.
-
-    Returns:
-    np.array: Predictions for each input.
-    """
-    # Calculate the dot product + bias for each input
-    activations = np.dot(X, weights[1:]) + weights[0]
-    # Apply the step function
-    return np.where(activations >= 0, 1, 0)
-
-# Example of training and predicting
-# Flatten the images for perceptron input
-flattened_images = [np.array(image).flatten() for image in images]  # Assuming 'images' is available from the loading function
-flattened_images = np.array(flattened_images)
-binary_labels = np.array(labels)  # Assuming binary labels and 'labels' is available
-
-# Convert labels from string or other types to integers if needed
-# binary_labels = np.array([int(label) for label in labels])
-
-# Train the perceptron
-weights = perceptron_train(flattened_images, binary_labels, epochs=10, learning_rate=0.01)
-
-# Predict using the trained model
-predictions = perceptron_predict(flattened_images, weights)
