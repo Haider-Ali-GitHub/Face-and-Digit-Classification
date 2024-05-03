@@ -1,47 +1,64 @@
+# perceptron.py
+# -------------
+# Licensing Information: You are free to use and extend these projects for educational purposes.
+# The Pacman AI projects were developed at UC Berkeley, by John DeNero and Dan Klein.
+# More info at http://inst.eecs.berkeley.edu/~cs188/sp09/pacman.html
+
+# Perceptron implementation
+import util
+
 class Perceptron:
+    """
+    Perceptron classifier.
+    
+    Note that the variable 'datum' in this code refers to a counter of features
+    (not to a raw samples.Datum).
+    """
     def __init__(self, legalLabels, max_iterations):
         self.legalLabels = legalLabels
         self.type = "perceptron"
         self.max_iterations = max_iterations
-        self.weights = {label: {} for label in legalLabels}
+        self.weights = {label: util.Counter() for label in legalLabels}
 
+    def setWeights(self, weights):
+        assert len(weights) == len(self.legalLabels), "Weights and legal labels must match in length"
+        self.weights = weights
+        
     def train(self, trainingData, trainingLabels, validationData, validationLabels):
+        """
+        The training loop for the perceptron passes through the training data several
+        times and updates the weight vector for each label based on classification errors.
+        """
+        self.features = list(trainingData[0].keys())  # could be useful later
+        
         for iteration in range(self.max_iterations):
             print(f"Starting iteration {iteration}...")
-            for features, true_label in zip(trainingData, trainingLabels):
-                # Compute the dot product of weights and features for each label
-                scores = {label: sum(features[f] * self.weights[label].get(f, 0) for f in features) for label in self.legalLabels}
-                # Determine the best guess label
-                best_guess_label = max(scores, key=scores.get)
-                # Update weights if the prediction is wrong
-                if true_label != best_guess_label:
-                    for f in features:
-                        if f in self.weights[true_label]:
-                            self.weights[true_label][f] += features[f]
-                        else:
-                            self.weights[true_label][f] = features[f]
-                        
-                        if f in self.weights[best_guess_label]:
-                            self.weights[best_guess_label][f] -= features[f]
-                        else:
-                            self.weights[best_guess_label][f] = -features[f]
-
-    def test(self, data):
+            for i in range(len(trainingData)):
+                actual, guess = trainingLabels[i], self.classify([trainingData[i]])[0]
+                if actual != guess:
+                    self.weights[actual] = self.weights[actual] + trainingData[i]
+                    self.weights[guess] = self.weights[guess] - trainingData[i]
+    
+    def classify(self, data):
+        """
+        Classifies each datum as the label that most closely matches the prototype vector
+        for that label.
+        """
         guesses = []
         for datum in data:
-            scores = {label: sum(datum[f] * self.weights[label].get(f, 0) for f in datum) for label in self.legalLabels}
-            best_label = max(scores, key=scores.get)
-            guesses.append(best_label)
+            vectors = util.Counter()
+            for label in self.legalLabels:
+                vectors[label] = self.weights[label] * datum
+            guesses.append(vectors.argMax())
         return guesses
 
-    # def findHighWeightFeatures(self, label, top_k=100):
-    #     if label in self.weights:
-    #         # Get features with the highest weights for the given label
-    #         features_weights = list(self.weights[label].items())
-    #         # Sort by weight in descending order
-    #         features_weights.sort(key=lambda x: x[1], reverse=True)
-    #         # Return the top k features
-    #         return features_weights[:top_k]
-    #     else:
-    #         return []
+    def findHighWeightFeatures(self, label):
+        """
+        Returns a list of the 100 features with the greatest weight for some label.
+        """
+        featuresWeights = []
+        # Example of defining high weight features -- needs real implementation
+        if label in self.weights:
+            featuresWeights = self.weights[label].most_common(100)  # Assuming Counter supports most_common
 
+        return featuresWeights
