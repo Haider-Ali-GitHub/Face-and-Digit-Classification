@@ -8,26 +8,39 @@ def read_label(filename):
 
 def read_image(filename):
     """
-    returns an array filled with arrays that have images inside of them 
+    Reads and returns a list of images represented as lists of lines.
+    Assumes each image starts with a non-empty line, followed by 66 more lines.
+
+    Args:
+        filename: The path to the image file.
+
+    Returns:
+        A list of images, where each image is a list of lines.
     """
     images = []
     current_image = []
-    blank_line_count = 0  # Counter for consecutive blank lines
+    found_first_line = False
 
     with open(filename, 'r') as file:
         for line in file:
             stripped_line = line.strip()
-            if stripped_line:
-                if blank_line_count >= 2 and current_image:  # Check if two blank lines were seen before this line
-                    images.append(current_image)
-                    current_image = []
-                current_image.append(stripped_line)
-                blank_line_count = 0  # Reset blank line counter
-            else:
-                blank_line_count += 1  # Increment blank line counter
 
-        if current_image:  # Add the last image if file doesn't end with two blank lines
-            images.append(current_image)
+            # Check if the current image is complete
+            if found_first_line and len(current_image) == 67:
+                images.append(current_image)
+                current_image = []          # Reset for the next image
+                found_first_line = False    # Reset the flag
+
+            # Start a new image if not currently gathering one and find a non-empty line
+            if not found_first_line and stripped_line:
+                found_first_line = True
+                current_image.append(stripped_line)
+            elif found_first_line:
+                current_image.append(stripped_line)
+
+    # Append any final image that may not have been appended in the loop
+    if current_image and len(current_image) == 67:
+        images.append(current_image)
 
     return images
 
