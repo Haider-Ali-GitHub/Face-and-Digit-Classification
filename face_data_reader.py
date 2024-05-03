@@ -20,30 +20,33 @@ def read_image(filename):
     images = []
     current_image = []
     found_first_line = False
+    size = 68  # Total lines per image including the starting line
+    line_count = 0  # Count actual lines processed for each image
 
     with open(filename, 'r') as file:
-        for line in file:
+        for line_number, line in enumerate(file, start=1):
             stripped_line = line.strip()
-
-            # Check if the current image is complete
-            if found_first_line and len(current_image) == 68:
-                images.append(current_image)
-                current_image = []          # Reset for the next image
-                found_first_line = False    # Reset the flag
-
-            # Start a new image if not currently gathering one and find a non-empty line
-            if not found_first_line and stripped_line:
-                found_first_line = True
+            if not found_first_line:
+                if stripped_line:  # Start new image on first non-empty line
+                    found_first_line = True
+                    current_image.append(stripped_line)
+                    line_count = 1
+            else:
                 current_image.append(stripped_line)
-            elif found_first_line:
-                current_image.append(stripped_line)
+                line_count += 1
+                if line_count == size:  # Check if current image has reached its expected size
+                    images.append(current_image)
+                    current_image = []
+                    found_first_line = False
+                    line_count = 0
+                    print(f"Image added at line {line_number}, total images: {len(images)}")
 
-    # Append any final image that may not have been appended in the loop
-    if current_image and len(current_image) == 68:
+    # Handle the last image in the file
+    if current_image and line_count == size:
         images.append(current_image)
+        print(f"Final image added at line {line_number}, total images: {len(images)}")
 
     return images
-
 print()
 print("TEST LABELS AND IMAGES")
 result = read_label('data/facedata/facedatatestlabels')
