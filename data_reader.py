@@ -1,3 +1,19 @@
+def flatten_images(images):
+    """
+    Flattens a list of images from 2D lists of binary strings to 1D lists.
+
+    Args:
+    images (list): A list of images, where each image is a list of lists of binary strings.
+
+    Returns:
+    list: A list of flattened images, where each image is represented as a single list of binary strings.
+    """
+    flattened_images = []
+    for image in images:
+        flattened_image = [bit for row in image for bit in row]
+        flattened_images.append(flattened_image)
+    return flattened_images
+
 def read_images(file_name, size):
     """ 
     Reads image data from a file and converts each line of the file into a binary format based on spaces or marks.
@@ -17,7 +33,7 @@ def read_images(file_name, size):
             image = []
             for line in file:
                 # Convert line to binary format while removing any excess spaces before and after non space characters 
-                row = ['0' if c == ' ' else '1' for c in line.strip()]
+                row = ['0' if c == ' ' else '1' for c in line]
                 image.append(row)
                 count += 1
                 # Check if current image is complete

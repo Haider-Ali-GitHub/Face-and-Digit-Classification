@@ -40,9 +40,13 @@ digit_datasets = {
 for name, (img_file, label_file) in digit_datasets.items():
     images_path = os.path.join(DIGIT_DIR, img_file)
     labels_path = os.path.join(DIGIT_DIR, label_file)
-    digit_image_labels = load_data_and_labels(images_path, labels_path, DIGIT_IMAGE_SIZE)
+    digit_images, digit_labels = load_data_and_labels(images_path, labels_path, DIGIT_IMAGE_SIZE)
+    flat_digit_images = data_reader.flatten_images(digit_images)
 
 for name, (img_file, label_file) in face_datasets.items():
     images_path = os.path.join(FACE_DIR, img_file)
     labels_path = os.path.join(FACE_DIR, label_file)
-    digit_image_labels = load_data_and_labels(images_path, labels_path, FACE_IMAGE_SIZE)
+    face_images, face_labels = load_data_and_labels(images_path, labels_path, FACE_IMAGE_SIZE)
+    flat_face_images = data_reader.flatten_images(face_images)
+    print(flat_face_images)
+
