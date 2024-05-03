@@ -1,10 +1,3 @@
-import numpy as np
-from random import sample
-import math
-import time
-import timeit
-import matplotlib.pyplot as plt
-
 def read_data(file_name, size):
     image_size = size
     num_images = 0
