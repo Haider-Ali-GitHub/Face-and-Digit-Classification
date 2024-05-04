@@ -1,47 +1,43 @@
-import config
-import data_reader
-import os
-def load_data_and_labels(images_path, labels_path, size):
-    """
-    Loads both images and labels using the specified paths and logs the process.
-    
-    Args:
-    images_path (str): Path to the image data file.
-    labels_path (str): Path to the label data file.
-    size (int): The height of each image in lines.
-    
-    Returns:
-    tuple: A tuple containing two lists - one for images and one for labels.
-    """
-    print(f"Loading data from {images_path} and labels from {labels_path}")
-    images = data_reader.read_images(images_path, size)
-    labels = data_reader.read_labels(labels_path)
-    print(f"Loaded {len(labels)} labels and {len(images)} images.")
-    print("-------------------------------------------------")
-    return images, labels
+import config 
+from data_reader import load_data_and_labels, flatten_images
+import face_perceptron
+import numpy as np
 
+face_train_images_path = 'data/facedata/facedatatrain'
+face_train_labels_path = 'data/facedata/facedatatrainlabels'
 
-face_datasets = {
-    'test': ('facedatatest', 'facedatatestlabels'),
-    'train': ('facedatatrain', 'facedatatrainlabels'),
-    'validation': ('facedatavalidation', 'facedatavalidationlabels')
-}
+face_validation_images_path = 'data/facedata/facedatavalidation'
+face_validation_labels_path = 'data/facedata/facedatavalidationlabels'
 
-digit_datasets = {
-    'test': ('testimages', 'testlabels'),
-    'train': ('trainingimages', 'traininglabels'),
-    'validation': ('validationimages', 'validationlabels')
-}
+face_test_images_path = 'data/facedata/facedatatest'
+face_test_labels_path = 'data/facedata/facedatatestlabels'
 
-for name, (img_file, label_file) in digit_datasets.items():
-    images_path = os.path.join(config.DIGIT_DIR, img_file)
-    labels_path = os.path.join(config.DIGIT_DIR, label_file)
-    digit_images, digit_labels = load_data_and_labels(images_path, labels_path, config.DIGIT_IMAGE_SIZE)
-    flat_digit_images = data_reader.flatten_images(digit_images)
+# Load training data
+face_images, face_labels = load_data_and_labels(face_train_images_path, face_train_labels_path, config.config.get('FACE_IMAGE_SIZE'))
+flat_face_images = flatten_images(face_images)
 
-for name, (img_file, label_file) in face_datasets.items():
-    images_path = os.path.join(config.FACE_DIR, img_file)
-    labels_path = os.path.join(config.FACE_DIR, label_file)
-    face_images, face_labels = load_data_and_labels(images_path, labels_path, config.FACE_IMAGE_SIZE)
-    flat_face_images = data_reader.flatten_images(face_images)
+# Load validation data
+val_face_images, val_face_labels = load_data_and_labels(face_validation_images_path, face_validation_labels_path, config.config.get('FACE_IMAGE_SIZE'))
+flat_val_face_images = flatten_images(val_face_images)
 
+# Load test data
+test_face_images, test_face_labels = load_data_and_labels(face_test_images_path, face_test_labels_path, config.config.get('FACE_IMAGE_SIZE'))
+flat_test_face_images = flatten_images(test_face_images)
+
+# Initialize and train perceptron
+perceptron = face_perceptron.Perceptron()
+training_inputs = np.array(flat_face_images, dtype=np.float32)
+labels = np.array(face_labels, dtype=np.float32)
+validation_inputs = np.array(flat_val_face_images, dtype=np.float32)
+validation_labels = np.array(val_face_labels, dtype=np.float32)
+
+# Train the model with training and validation data
+perceptron.train(training_inputs, labels, validation_inputs, validation_labels)
+
+# Convert test data for model evaluation
+test_inputs = np.array(flat_test_face_images, dtype=np.float32)
+test_labels = np.array(test_face_labels, dtype=np.float32)
+
+# Evaluate the model using test data
+test_accuracy = perceptron.accuracy(test_inputs, test_labels)
+print(f"Final accuracy of the perceptron on the test set: {test_accuracy:.2f}%")

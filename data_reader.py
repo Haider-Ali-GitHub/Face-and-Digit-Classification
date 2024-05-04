@@ -63,3 +63,23 @@ def read_labels(file_name):
     except FileNotFoundError:
         print(f"Error: File not found - {file_name}")
     return labels
+
+def load_data_and_labels(images_path, labels_path, size):
+    """
+    Loads both images and labels using the specified paths and logs the process.
+    
+    Args:
+    images_path (str): Path to the image data file.
+    labels_path (str): Path to the label data file.
+    size (int): The height of each image in lines.
+    
+    Returns:
+    tuple: A tuple containing two lists - one for images and one for labels.
+    """
+    print(f"Loading data from {images_path} and labels from {labels_path}")
+    images = read_images(images_path, size)
+    labels = read_labels(labels_path)
+    print(f"Loaded {len(labels)} labels and {len(images)} images.")
+    print("-------------------------------------------------")
+    return images, labels
+
