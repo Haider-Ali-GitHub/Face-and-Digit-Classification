@@ -1,28 +1,27 @@
-import config
-import os
+import config 
 from data_reader import load_data_and_labels, flatten_images
 import face_perceptron
 import numpy as np
 
-train_images_path = 'data/facedata/facedatatrain'
-train_labels_path = 'data/facedata/facedatatrainlabels'
+face_train_images_path = 'data/facedata/facedatatrain'
+face_train_labels_path = 'data/facedata/facedatatrainlabels'
 
-validation_images_path = 'data/facedata/facedatavalidation'
-validation_labels_path = 'data/facedata/facedatavalidationlabels'
+face_validation_images_path = 'data/facedata/facedatavalidation'
+face_validation_labels_path = 'data/facedata/facedatavalidationlabels'
 
-test_images_path = 'data/facedata/facedatatest'
-test_labels_path = 'data/facedata/facedatatestlabels'
+face_test_images_path = 'data/facedata/facedatatest'
+face_test_labels_path = 'data/facedata/facedatatestlabels'
 
 # Load training data
-face_images, face_labels = load_data_and_labels(train_images_path, train_labels_path, 70)
+face_images, face_labels = load_data_and_labels(face_train_images_path, face_train_labels_path, config.config.get('FACE_IMAGE_SIZE'))
 flat_face_images = flatten_images(face_images)
 
 # Load validation data
-val_face_images, val_face_labels = load_data_and_labels(validation_images_path, validation_labels_path, 70)
+val_face_images, val_face_labels = load_data_and_labels(face_validation_images_path, face_validation_labels_path, config.config.get('FACE_IMAGE_SIZE'))
 flat_val_face_images = flatten_images(val_face_images)
 
 # Load test data
-test_face_images, test_face_labels = load_data_and_labels(test_images_path, test_labels_path, 70)
+test_face_images, test_face_labels = load_data_and_labels(face_test_images_path, face_test_labels_path, config.config.get('FACE_IMAGE_SIZE'))
 flat_test_face_images = flatten_images(test_face_images)
 
 # Initialize and train perceptron
