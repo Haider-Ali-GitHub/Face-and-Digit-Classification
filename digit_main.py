@@ -1,5 +1,5 @@
 import numpy as np
-from digit_data_reader import load_images_from_file, create_one_hot_labels_from_file, transform_to_binary_values, load_integer_labels_from_file
+from data_reader import load_images_from_file, create_one_hot_labels_from_file, transform_to_binary_values, load_integer_labels_from_file
 import digit_neural
 import digit_perceptron
 
