@@ -96,8 +96,8 @@ import time
 from data_reader import load_data_and_labels, flatten_images
 
 def train_and_evaluate_naive_bayes():
-    print("\nNAIVE BAYES- Faces")
-    print("--------------------")
+    print("\nNAIVE BAYES - Faces")
+    print("---------------------")
 
     # Define paths
     face_paths = {
@@ -151,12 +151,12 @@ def train_and_evaluate_naive_bayes():
 
 def main():
     print("\nFACES\n------")
-    print("\nPERCEPTRON - Faces")
-    print("---------------------")
-    train_and_evaluate_perceptron()
     print("\nNEURAL NETWORK - Faces")
     print("-----------------------")
     train_and_evaluate_neural_network()
+    print("\nPERCEPTRON - Faces")
+    print("---------------------")
+    train_and_evaluate_perceptron()
     train_and_evaluate_naive_bayes()
 
     print("\nDIGITS\n----------")
