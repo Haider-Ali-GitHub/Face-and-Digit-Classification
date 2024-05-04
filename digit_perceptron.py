@@ -1,5 +1,5 @@
 import numpy as np
-from perceptron_file_utils import convert_file_to_images, convert_labels_to_one_hot, convert_data_to_binary, convert_labels_to_data
+from digit_data_reader import convert_file_to_images, convert_labels_to_one_hot, convert_data_to_binary, convert_labels_to_data
 
 
 def softmax(x):
