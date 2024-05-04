@@ -23,10 +23,6 @@ class Perceptron:
                 self.weights += self.lr * (label - prediction) * np.array(inputs)
                 self.bias += self.lr * (label - prediction)
             
-            # Validation phase at the end of each epoch
-            train_accuracy = self.accuracy(training_inputs, labels)
-            print(f"Training Accuracy after epoch {epoch+1}: {train_accuracy:.2f}%")
-
             val_accuracy = self.accuracy(validation_inputs, validation_labels)
             print(f"Validation Accuracy after epoch {epoch+1}: {val_accuracy:.2f}%")
 
