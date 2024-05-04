@@ -1,4 +1,4 @@
-from data_reader import read_data, read_labels
+from data_reader import read_images, read_labels
 from perceptron import Perceptron
 
 def main():
@@ -8,9 +8,9 @@ def main():
     classifier = Perceptron(legalLabels, max_iterations)
 
     # Load data
-    train_images = read_data('data/digitdata/trainingimages', 28)
+    train_images = read_images('data/digitdata/trainingimages', 28)
     train_labels = read_labels('data/digitdata/traininglabels')
-    test_images = read_data('data/digitdata/testimages', 28)
+    test_images = read_images('data/digitdata/testimages', 28)
     test_labels = read_labels('data/digitdata/testlabels')
 
     # Train the classifier
