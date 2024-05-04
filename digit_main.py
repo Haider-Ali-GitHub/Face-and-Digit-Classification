@@ -18,8 +18,11 @@ def main():
     training_data = transform_to_binary_values(training_data)
     training_data = np.reshape(training_data, (5000, 560))  # Specific to neural network
 
+    print("\nNEURAL NETWORK- Digit")
+    print("--------------------")
+
     # Initialize and train the Neural Network
-    print("\nNEURAL NETWORK: Training...")
+    print("Training Neural Network...")
     nn = digit_neural.NeuralNetwork(input_size=560, hidden_size=300, output_size=10)
     nn.train(training_data, training_labels, lr=0.001, epochs=100, batch_size=32)
     print("\nNEURAL NETWORK: Training Completed")
@@ -49,13 +52,14 @@ def main():
 
 
 
-
+    print("\nPERCEPTRON- Digit")
+    print("--------------------")
 
     # Reuse the same training data but for perceptron; no reshape needed
     training_data_perceptron = transform_to_binary_values(np.array(load_images_from_file(training_images_path)))
 
     # Execute perceptron training process
-    print("\nPERCEPTRON: Training...")
+    print("Training Perceptron...")
     perceptron_weights, perceptron_biases = digit_perceptron.train_perceptron(training_data_perceptron, training_labels, 100, 0.01)
     print("\nPERCEPTRON: Training Completed")
 
