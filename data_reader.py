@@ -108,4 +108,4 @@ def read_labels(file_name):
 def load_data_and_labels(images_path, labels_path, size):
     images = read_images(images_path, size)
     labels = read_labels(labels_path)
-    return images, labels
+    return images, labels 
