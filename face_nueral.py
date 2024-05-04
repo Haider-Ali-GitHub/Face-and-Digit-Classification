@@ -85,36 +85,3 @@ class NeuralNetwork:
 def calculate_accuracy(y_true, y_pred):
         return np.mean(y_true == y_pred)
 
-def main():
-    # Load and preprocess training data
-    training_images, training_labels = load_data_and_labels('data/facedata/facedatatrain', 'data/facedata/facedatatrainlabels', 70)
-    validation_images, validation_labels = load_data_and_labels('data/facedata/facedatavalidation', 'data/facedata/facedatavalidationlabels', 70)
-    test_images, test_labels = load_data_and_labels('data/facedata/facedatatest', 'data/facedata/facedatatestlabels', 70)
-
-    flattened_training_images = flatten_images(training_images)
-    flattened_validation_images = flatten_images(validation_images)
-    flattened_test_images = flatten_images(test_images)
-
-    training_data = np.array(flattened_training_images, dtype=int)
-    validation_data = np.array(flattened_validation_images, dtype=int)
-    test_data = np.array(flattened_test_images, dtype=int)
-
-    training_labels = one_hot_encode(np.array(training_labels, dtype=int), 2)
-    validation_labels = np.array(validation_labels, dtype=int)
-    test_labels = np.array(test_labels, dtype=int)
-
-    nn = NeuralNetwork(training_data.shape[1], 300, 2)
-    nn.train(training_data, training_labels, lr=0.001, epochs=100, batch_size=32)
-
-    # Predict and calculate accuracy
-    validation_predictions = nn.predict(validation_data)
-    test_predictions = nn.predict(test_data)
-
-    validation_accuracy = calculate_accuracy(validation_labels, validation_predictions)
-    test_accuracy = calculate_accuracy(test_labels, test_predictions)
-
-    print(f"Validation Accuracy: {validation_accuracy}")
-    print(f"Test Accuracy: {test_accuracy}")
-
-if __name__ == "__main__":
-    main()
