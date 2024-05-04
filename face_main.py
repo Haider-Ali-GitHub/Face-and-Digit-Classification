@@ -75,8 +75,8 @@ def train_and_evaluate_neural_network():
     test_accuracy = face_nueral.calculate_accuracy(test_labels, test_predictions)
 
     print("NEURAL NETWORK: Validation Completed")
-    print(f"NEURAL NETWORK Validation Accuracy: {validation_accuracy:.2f}%")
-    print(f"NEURAL NETWORK Test Accuracy: {test_accuracy:.2f}%")
+    print(f"NEURAL NETWORK Validation Accuracy: {100*validation_accuracy:.2f}%")
+    print(f"NEURAL NETWORK Test Accuracy: {100*test_accuracy:.2f}%")
 
 def main():
     train_and_evaluate_perceptron()
