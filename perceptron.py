@@ -1,47 +1,43 @@
+from main import flat_digit_images, digit_labels
+import numpy as np
+
 class Perceptron:
-    def __init__(self, legalLabels, max_iterations):
-        self.legalLabels = legalLabels
-        self.type = "perceptron"
-        self.max_iterations = max_iterations
-        self.weights = {label: {} for label in legalLabels}
+    def __init__(self, learning_rate=0.1, epochs=100):
+        self.lr = learning_rate
+        self.epochs = epochs
+        self.weights = None
+        self.bias = 0
 
-    def train(self, trainingData, trainingLabels, validationData, validationLabels):
-        for iteration in range(self.max_iterations):
-            print(f"Starting iteration {iteration}...")
-            for features, true_label in zip(trainingData, trainingLabels):
-                # Compute the dot product of weights and features for each label
-                scores = {label: sum(features[f] * self.weights[label].get(f, 0) for f in features) for label in self.legalLabels}
-                # Determine the best guess label
-                best_guess_label = max(scores, key=scores.get)
-                # Update weights if the prediction is wrong
-                if true_label != best_guess_label:
-                    for f in features:
-                        if f in self.weights[true_label]:
-                            self.weights[true_label][f] += features[f]
-                        else:
-                            self.weights[true_label][f] = features[f]
-                        
-                        if f in self.weights[best_guess_label]:
-                            self.weights[best_guess_label][f] -= features[f]
-                        else:
-                            self.weights[best_guess_label][f] = -features[f]
+    def activation(self, x):
+        return 1 if x >= 0 else 0
 
-    def test(self, data):
-        guesses = []
-        for datum in data:
-            scores = {label: sum(datum[f] * self.weights[label].get(f, 0) for f in datum) for label in self.legalLabels}
-            best_label = max(scores, key=scores.get)
-            guesses.append(best_label)
-        return guesses
+    def predict(self, inputs):
+        sum = np.dot(inputs, self.weights) + self.bias
+        return self.activation(sum)
 
-    # def findHighWeightFeatures(self, label, top_k=100):
-    #     if label in self.weights:
-    #         # Get features with the highest weights for the given label
-    #         features_weights = list(self.weights[label].items())
-    #         # Sort by weight in descending order
-    #         features_weights.sort(key=lambda x: x[1], reverse=True)
-    #         # Return the top k features
-    #         return features_weights[:top_k]
-    #     else:
-    #         return []
+    def train(self, training_inputs, labels):
+        self.weights = np.zeros(len(training_inputs[0]))
+        for _ in range(self.epochs):
+            for inputs, label in zip(training_inputs, labels):
+                prediction = self.predict(inputs)
+                self.weights += self.lr * (label - prediction) * np.array(inputs)
+                self.bias += self.lr * (label - prediction)
 
+    def accuracy(self, inputs, labels):
+        predictions = [self.predict(input) for input in inputs]
+        correct_predictions = sum([pred == label for pred, label in zip(predictions, labels)])
+        return correct_predictions / len(labels) * 100  # Return accuracy as a percentage
+
+# Example usage
+perceptron = Perceptron()
+training_inputs = np.array(flat_digit_images, dtype=np.float32) 
+labels = np.array(digit_labels, dtype=np.float32)
+
+split_index = int(len(training_inputs) * 0.963)
+train_inputs, test_inputs = training_inputs[:split_index], training_inputs[split_index:]
+train_labels, test_labels = labels[:split_index], labels[split_index:]
+
+perceptron.train(train_inputs, train_labels)
+
+test_accuracy = perceptron.accuracy(test_inputs, test_labels)
+print(f"Accuracy of the perceptron on the test set: {test_accuracy:.2f}%")
