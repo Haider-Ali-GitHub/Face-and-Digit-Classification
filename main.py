@@ -92,21 +92,74 @@ def train_and_evaluate_neural_network():
     print(f"NEURAL NETWORK Validation Accuracy: {100*validation_accuracy:.2f}%")
     print(f"NEURAL NETWORK Test Accuracy: {100*test_accuracy:.2f}%  (Elapsed time: {elapsed_time:.2f})")
 
+import time
+from data_reader import load_data_and_labels, flatten_images
 
+def train_and_evaluate_naive_bayes():
+    print("\nNAIVE BAYES- Faces")
+    print("--------------------")
+
+    # Define paths
+    face_paths = {
+        'train_images': 'data/facedata/facedatatrain',
+        'train_labels': 'data/facedata/facedatatrainlabels',
+        'validation_images': 'data/facedata/facedatavalidation',
+        'validation_labels': 'data/facedata/facedatavalidationlabels',
+        'test_images': 'data/facedata/facedatatest',
+        'test_labels': 'data/facedata/facedatatestlabels'
+    }
+
+    # Load and prepare training data
+    print("Loading and preparing training data...")
+    train_images, train_labels = load_data_and_labels(face_paths['train_images'], face_paths['train_labels'], 70)
+    train_data = [{i: int(pixel) for i, pixel in enumerate(image)} for image in flatten_images(train_images)]
+
+    # Load and prepare validation data
+    print("Loading and preparing validation data...")
+    validation_images, validation_labels = load_data_and_labels(face_paths['validation_images'], face_paths['validation_labels'], 70)
+    validation_data = [{i: int(pixel) for i, pixel in enumerate(image)} for image in flatten_images(validation_images)]
+
+    # Load and prepare test data
+    print("Loading and preparing test data...")
+    test_images, test_labels = load_data_and_labels(face_paths['test_images'], face_paths['test_labels'], 70)
+    test_data = [{i: int(pixel) for i, pixel in enumerate(image)} for image in flatten_images(test_images)]
+
+    # Initialize the Naive Bayes classifier
+    print("Initializing Naive Bayes Classifier for Face Data...")
+    nb_classifier = NaiveBayesClassifier(legalLabels=[str(i) for i in range(2)])  # Assuming labels '0' and '1'
+
+    # Training the classifier
+    start_time = time.time()
+    print("Training Naive Bayes Classifier for Face Data...")
+    nb_classifier.train(train_data, train_labels)
+    training_time = time.time() - start_time
+    print(f"Naive Bayes: Training Completed (Training time: {training_time:.2f}s)")
+
+    # Validate the classifier
+    print("Validating Naive Bayes Classifier for Face Data...")
+    validation_predictions = nb_classifier.classify(validation_data)
+    validation_accuracy = sum(int(pred == true) for pred, true in zip(validation_predictions, validation_labels)) / len(validation_labels)
+    elapsed_time = time.time() - start_time
+    print(f"Validation Accuracy: {validation_accuracy * 100:.2f}% (Elapsed time: {elapsed_time:.2f}s)")
+
+    # Test the classifier
+    print("Testing Naive Bayes Classifier for Face Data...")
+    test_predictions = nb_classifier.classify(test_data)
+    test_accuracy = sum(int(pred == true) for pred, true in zip(test_predictions, test_labels)) / len(test_labels)
+    elapsed_time = time.time() - start_time
+    print(f"Test Accuracy: {test_accuracy * 100:.2f}% (Elapsed time: {elapsed_time:.2f}s)")
 
 def main():
     print("\nFACES\n------")
-    print("\nPERCEPTRON- Faces")
-    print("--------------------")
+    print("\nPERCEPTRON - Faces")
+    print("---------------------")
     train_and_evaluate_perceptron()
-    print("\nNEURAL NETWORK- Faces")
-    print("----------------------")
+    print("\nNEURAL NETWORK - Faces")
+    print("-----------------------")
     train_and_evaluate_neural_network()
-
+    train_and_evaluate_naive_bayes()
 
     print("\nDIGITS\n----------")
-
-
     # file paths
     test_images_path = "data/digitdata/testimages"
     test_labels_path = "data/digitdata/testlabels"
@@ -121,8 +174,8 @@ def main():
     training_data = transform_to_binary_values(training_data)
     training_data = np.reshape(training_data, (5000, 560))  # for neural network!!
 
-    print("\nNEURAL NETWORK- Digit")
-    print("--------------------")
+    print("\nNEURAL NETWORK - Digit")
+    print("---------------------")
 
     # initialize and train the neural network
     beginning_time = time.time()
@@ -158,8 +211,8 @@ def main():
     print(f"NEURAL NETWORK Testing Accuracy: {100*nn_accuracy:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
 
     
-    print("\nPERCEPTRON- Digit")
-    print("--------------------")
+    print("\nPERCEPTRON - Digit")
+    print("---------------------")
 
     # reuse training data for perceptron
     training_data_perceptron = transform_to_binary_values(np.array(load_images_from_file(training_images_path)))
@@ -198,8 +251,8 @@ def main():
 
 
     # NAIVE BAYES ALGORITHM!!!!!
-    print("\nNAIVE BAYES- Digit")
-    print("--------------------")
+    print("\nNAIVE BAYES - Digit")
+    print("---------------------")
 
     # file paths
     train_images_path = 'data/digitdata/trainingimages'
@@ -244,56 +297,7 @@ def main():
     test_accuracy = sum(int(pred == true) for pred, true in zip(test_predictions, test_labels)) / len(test_labels)
     elapsed_time = time.time() - first_time
     print(f"Test Accuracy: {test_accuracy * 100:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
-
-
-
-
-    print("\nNAIVE BAYES- Face")
-    print("--------------------")
-
-    train_images_path = 'data/facedata/facedatatrain'
-    train_labels_path = 'data/facedata/facedatatrainlabels'
-    validation_images_path = 'data/facedata/facedatavalidation'
-    validation_labels_path = 'data/facedata/facedatavalidationlabels'
-    test_images_path = 'data/facedata/facedatatest'
-    test_labels_path = 'data/facedata/facedatatestlabels'
-
-    # load/process training data
-    train_images, train_labels = load_data_and_labels(training_images_path, training_labels_path, 70)
-    train_data = [{i: int(pixel) for i, pixel in enumerate(image)} for image in flatten_images(train_images)]
-
-    # load/process validation data
-    validation_images, validation_labels = load_data_and_labels(validation_images_path, validation_labels_path, 70)
-    validation_data = [{i: int(pixel) for i, pixel in enumerate(image)} for image in flatten_images(validation_images)]
-
-    # load/process test data
-    test_images, test_labels = load_data_and_labels(test_images_path, test_labels_path, 70)
-    test_data = [{i: int(pixel) for i, pixel in enumerate(image)} for image in flatten_images(test_images)]
-
-    # initialize the Naive Bayes classifier with possible face labels
-    nb_classifier = NaiveBayesClassifier(legalLabels=[str(i) for i in range(2)])  # Assuming labels '0' and '1'
-
-    # training
-    first_time = time.time()
-    print("Training Naive Bayes Classifier for Face Data...")
-    nb_classifier.train(train_data, train_labels)
-    training_time = time.time() - first_time
-    print(f"Naive Bayes: Training Completed  (Training time: {training_time:.2f})")
-
-    # validation
-    print("Validating Naive Bayes Classifier for Face Data...")
-    validation_predictions = nb_classifier.classify(validation_data)
-    validation_accuracy = sum(int(pred == true) for pred, true in zip(validation_predictions, validation_labels)) / len(validation_labels)
-    elapsed_time = time.time() - first_time
-    print(f"Validation Accuracy: {validation_accuracy * 100:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
-
-    # testing
-    print("Testing Naive Bayes Classifier for Face Data...")
-    test_predictions = nb_classifier.classify(test_data)
-    test_accuracy = sum(int(pred == true) for pred, true in zip(test_predictions, test_labels)) / len(test_labels)
-    elapsed_time = time.time() - first_time
-    print(f"Test Accuracy: {test_accuracy * 100:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
-
+  
 
 if __name__ == "__main__":
     main()
