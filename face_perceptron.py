@@ -1,5 +1,7 @@
 from main import flat_digit_images, digit_labels, flat_face_images, face_labels
 import numpy as np
+import main
+import data_reader
 
 class Perceptron:
     def __init__(self, learning_rate=0.1, epochs=100):
@@ -29,6 +31,11 @@ class Perceptron:
         return correct_predictions / len(labels) * 100  # Return accuracy as a percentage
 
 # Example usage
+images_path = 'data/facedata/facedatatrain'
+labels_path = 'data/facedata/facedatatrainlabels'
+face_images, face_labels = main.load_data_and_labels(images_path, labels_path, 70)
+flat_face_images = data_reader.flatten_images(face_images)
+
 perceptron = Perceptron()
 training_inputs = np.array(flat_face_images, dtype=np.float32) 
 labels = np.array(face_labels, dtype=np.float32)

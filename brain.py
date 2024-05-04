@@ -1,5 +1,5 @@
 inport
-from perceptron import Perceptron
+from face_perceptron import Perceptron
 
 def flatten_image(image):
     """Flatten a 2D image into a 1D list of pixels."""
