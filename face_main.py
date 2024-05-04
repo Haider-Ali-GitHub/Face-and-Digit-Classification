@@ -3,6 +3,7 @@ from data_reader import load_data_and_labels, flatten_images
 import face_perceptron
 import face_nueral
 import numpy as np
+import time
 
 # file paths
 face_paths = {
@@ -32,14 +33,16 @@ def train_and_evaluate_perceptron():
 
     # initailize/train perceptron
     print("\nPERCEPTRON: Training...")
+    start_time = time.time()
     perceptron = face_perceptron.Perceptron()
     perceptron.train(training_inputs, labels, validation_inputs, validation_labels)
-    print("PERCEPTRON: Training Completed")
+    training_time = time.time() - start_time
+    print(f"PERCEPTRON: Training Completed (Training time: {training_time:.2f})")
 
     # evaluate model using testing data
     test_accuracy = perceptron.accuracy(test_inputs, test_labels)
     print("PERCEPTRON: Validation Completed")
-    print(f"PERCEPTRON: Final Accuracy on Test Set: {test_accuracy:.2f}%")
+    print(f"PERCEPTRON: Final Accuracy on Test Set: {test_accuracy:.2f}% ")
 
 def train_and_evaluate_neural_network():
     
@@ -63,9 +66,11 @@ def train_and_evaluate_neural_network():
 
     # nitialize/train neural network
     print("NEURAL NETWORK: Training...")
+    start_time = time.time()
     nn = face_nueral.NeuralNetwork(training_data.shape[1], 300, 2)
     nn.train(training_data, training_labels, lr=0.001, epochs=100, batch_size=32)
-    print("NEURAL NETWORK: Training Completed")
+    training_time = time.time()-start_time
+    print(f"NEURAL NETWORK: Training Completed  (Training time: {training_time:.2f})")
 
     # evaluate neural network
     validation_predictions = nn.predict(validation_data)
@@ -73,10 +78,11 @@ def train_and_evaluate_neural_network():
 
     validation_accuracy = face_nueral.calculate_accuracy(validation_labels, validation_predictions)
     test_accuracy = face_nueral.calculate_accuracy(test_labels, test_predictions)
+    elapsed_time = time.time() - start_time
 
     print("NEURAL NETWORK: Validation Completed")
     print(f"NEURAL NETWORK Validation Accuracy: {100*validation_accuracy:.2f}%")
-    print(f"NEURAL NETWORK Test Accuracy: {100*test_accuracy:.2f}%")
+    print(f"NEURAL NETWORK Test Accuracy: {100*test_accuracy:.2f}%  (Elapsed time: {elapsed_time:.2f})")
 
 def main():
     train_and_evaluate_perceptron()

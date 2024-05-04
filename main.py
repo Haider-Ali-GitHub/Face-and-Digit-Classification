@@ -2,6 +2,7 @@ from data_reader import load_data_and_labels, flatten_images, load_images_from_f
 import face_perceptron
 import face_nueral
 import numpy as np
+import time
 import config
 import digit_neural
 import digit_perceptron
@@ -37,14 +38,16 @@ def train_and_evaluate_perceptron():
 
     # initailize/train perceptron
     print("\nPERCEPTRON: Training...")
+    start_time = time.time()
     perceptron = face_perceptron.Perceptron()
     perceptron.train(training_inputs, labels, validation_inputs, validation_labels)
-    print("PERCEPTRON: Training Completed")
+    training_time = time.time() - start_time
+    print(f"PERCEPTRON: Training Completed (Training time: {training_time:.2f})")
 
     # evaluate model using testing data
     test_accuracy = perceptron.accuracy(test_inputs, test_labels)
     print("PERCEPTRON: Validation Completed")
-    print(f"PERCEPTRON: Final Accuracy on Test Set: {test_accuracy:.2f}%")
+    print(f"PERCEPTRON: Final Accuracy on Test Set: {test_accuracy:.2f}% ")
 
 def train_and_evaluate_neural_network():
     
@@ -68,9 +71,11 @@ def train_and_evaluate_neural_network():
 
     # nitialize/train neural network
     print("NEURAL NETWORK: Training...")
+    start_time = time.time()
     nn = face_nueral.NeuralNetwork(training_data.shape[1], 300, 2)
     nn.train(training_data, training_labels, lr=0.001, epochs=100, batch_size=32)
-    print("NEURAL NETWORK: Training Completed")
+    training_time = time.time()-start_time
+    print(f"NEURAL NETWORK: Training Completed  (Training time: {training_time:.2f})")
 
     # evaluate neural network
     validation_predictions = nn.predict(validation_data)
@@ -78,10 +83,13 @@ def train_and_evaluate_neural_network():
 
     validation_accuracy = face_nueral.calculate_accuracy(validation_labels, validation_predictions)
     test_accuracy = face_nueral.calculate_accuracy(test_labels, test_predictions)
+    elapsed_time = time.time() - start_time
 
     print("NEURAL NETWORK: Validation Completed")
     print(f"NEURAL NETWORK Validation Accuracy: {100*validation_accuracy:.2f}%")
-    print(f"NEURAL NETWORK Test Accuracy: {100*test_accuracy:.2f}%")
+    print(f"NEURAL NETWORK Test Accuracy: {100*test_accuracy:.2f}%  (Elapsed time: {elapsed_time:.2f})")
+
+
 
 def main():
     print("\nFACES\n------")
@@ -94,6 +102,7 @@ def main():
 
 
     print("\nDIGITS\n----------")
+
 
     # file paths
     test_images_path = "data/digitdata/testimages"
@@ -113,10 +122,12 @@ def main():
     print("--------------------")
 
     # initialize and train the neural network
+    beginning_time = time.time()
     print("Training Neural Network...")
     nn = digit_neural.NeuralNetwork(input_size=560, hidden_size=300, output_size=10)
     nn.train(training_data, training_labels, lr=0.001, epochs=100, batch_size=32)
-    print("\nNEURAL NETWORK: Training Completed")
+    training_time = time.time() - beginning_time
+    print(f"\nNEURAL NETWORK: Training Completed (Elapsed training time: {training_time:.2f}s)")
 
     # load/process validation data
     validation_data = np.array(load_images_from_file(validation_images_path))
@@ -131,19 +142,19 @@ def main():
 
     # validate neural network
     nn_predicted_labels = digit_neural.predict(validation_data, nn.weights_input_hidden, nn.weights_hidden_process, nn.bias_hidden, nn.bias_output)
+    elapsed_time = time.time() - beginning_time
     nn_accuracy = np.mean(np.argmax(nn_predicted_labels, axis=1) == validation_labels)
     print("NEURAL NETWORK Validation Completed")
-    print(f"NEURAL NETWORK Validation Accuracy: {100*nn_accuracy:.2f}%\n")
+    print(f"NEURAL NETWORK Validation Accuracy: {100*nn_accuracy:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
 
     # testing the neural Network
     nn_predicted_labels = digit_neural.predict(testing_data, nn.weights_input_hidden, nn.weights_hidden_process, nn.bias_hidden, nn.bias_output)
     nn_accuracy = np.mean(np.argmax(nn_predicted_labels, axis=1) == testing_labels)
+    elapsed_time = time.time() - beginning_time
     print("NEURAL NETWORK Testing Completed")
-    print(f"NEURAL NETWORK Testing Accuracy: {100*nn_accuracy:.2f}%\n")
+    print(f"NEURAL NETWORK Testing Accuracy: {100*nn_accuracy:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
 
     
-
-
     print("\nPERCEPTRON- Digit")
     print("--------------------")
 
@@ -151,18 +162,22 @@ def main():
     training_data_perceptron = transform_to_binary_values(np.array(load_images_from_file(training_images_path)))
 
     # perceptron training 
+    beginning_time = time.time()
     print("Training Perceptron...")
     perceptron_weights, perceptron_biases = digit_perceptron.train_perceptron(training_data_perceptron, training_labels, 100, 0.01)
-    print("\nPERCEPTRON: Training Completed")
+    training_time = time.time() - beginning_time
+    print(f"\nPERCEPTRON: Training Completed (Elapsed training time: {training_time:.2f}s)")
 
     # load validation data for perceptron
     validation_data_perceptron = transform_to_binary_values(np.array(load_images_from_file(validation_images_path)))
     validation_data_perceptron = np.reshape(validation_data_perceptron, (len(validation_data_perceptron), 560))
 
     # validate perceptron
+    
     perceptron_accuracy = digit_perceptron.predict(validation_data_perceptron, validation_labels, perceptron_weights, perceptron_biases)
+    elapsed_time = time.time() - beginning_time
     print("PERCEPTRON: Validation Completed")
-    print(f"PERCEPTRON: Validation Accuracy: {perceptron_accuracy:.2f}%\n")
+    print(f"PERCEPTRON: Validation Accuracy: {perceptron_accuracy:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
 
     # load testing data for perceptron
     test_data_perceptron = transform_to_binary_values(np.array(load_images_from_file(test_images_path)))
@@ -170,8 +185,9 @@ def main():
 
     # test the perceptron
     perceptron_accuracy = digit_perceptron.predict(test_data_perceptron, testing_labels, perceptron_weights, perceptron_biases)
+    elapsed_time = time.time() - beginning_time
     print("PERCEPTRON: Testing Completed")
-    print(f"PERCEPTRON: Testing Accuracy: {perceptron_accuracy:.2f}%\n")
+    print(f"PERCEPTRON: Testing Accuracy: {perceptron_accuracy:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
 
 if __name__ == "__main__":
     main()
