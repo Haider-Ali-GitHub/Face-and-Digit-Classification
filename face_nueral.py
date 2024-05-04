@@ -45,7 +45,7 @@ class NeuralNetwork:
         self.hidden_input = np.dot(inputs, self.weights_input_hidden) + self.bias_hidden
         self.hidden_process = relu(self.hidden_input)
         self.output_input = np.dot(self.hidden_process, self.weights_hidden_process) + self.bias_output
-        self.output_process = softmax(self.output_input)  # Changed sigmoid to softmax for multi-class classification
+        self.output_process = softmax(self.output_input)  # chang sigmoid to softmax
         return self.output_process
 
     def backpropagation(self, inputs, y_true, lr):
@@ -75,8 +75,8 @@ class NeuralNetwork:
                 loss = cross_entropy_loss(batch_y_true, self.output_process)
                 self.backpropagation(batch_inputs, batch_y_true, lr)
 
-            if epoch % 10 == 0:
-                print(f'Epoch {epoch}, Loss: {loss:.4f}')
+            if epoch % 5 == 0:
+                print(f'Epoch: {epoch} |  Loss: {loss:.5f}')
 
     def predict(self, inputs):
         output_probabilities = self.forward(inputs)

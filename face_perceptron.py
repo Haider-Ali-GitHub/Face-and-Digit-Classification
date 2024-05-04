@@ -17,7 +17,6 @@ class Perceptron:
         return self.activation(np.dot(inputs, self.weights) + self.bias)
 
     def initialize_weights(self, input_dim):
-        """Initialize weights with small random values."""
         self.weights = np.random.uniform(-0.01, 0.01, input_dim)
         self.bias = np.random.uniform(-0.01, 0.01)
 
@@ -30,20 +29,20 @@ class Perceptron:
         no_improvement_epochs = 0
 
         for epoch in range(self.epochs):
-            # Training phase
+            # training phase
             for inputs, label in zip(training_inputs, labels):
                 prediction = self.predict(inputs)
                 error = label - prediction
 
-                # Regularization update
+                # regularization
                 self.weights = (1 - self.lr * self.regularization) * self.weights + self.lr * error * np.array(inputs)
                 self.bias += self.lr * error
 
-            # Validation phase
+            # validate
             val_accuracy = self.accuracy(validation_inputs, validation_labels)
-            print(f"Validation Accuracy after epoch {epoch+1}: {val_accuracy:.2f}%")
+            print(f"Epoch {epoch+1} Validation Accuracy: {val_accuracy:.2f}%")
 
-            # Early stopping logic
+            # stop early if not changing
             if val_accuracy > best_val_accuracy:
                 best_val_accuracy = val_accuracy
                 no_improvement_epochs = 0
@@ -51,7 +50,7 @@ class Perceptron:
                 no_improvement_epochs += 1
 
             if no_improvement_epochs >= self.early_stop_rounds:
-                print(f"Early stopping at epoch {epoch+1}. Best validation accuracy: {best_val_accuracy:.2f}%")
+                print(f"Stopped early @ Epoch {epoch+1}. Best validation accuracy: {best_val_accuracy:.2f}%\n")
                 break
 
     def accuracy(self, inputs, labels):

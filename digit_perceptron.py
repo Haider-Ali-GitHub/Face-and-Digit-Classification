@@ -25,7 +25,7 @@ def train_perceptron(training_data, target_labels, num_epochs, learning_rate):
             cumulative_loss += np.sum(-target_labels[index] * np.log(prediction + 1e-15)) / target_labels.shape[0]
 
         if epoch % 5 == 0:
-            print(f'Epoch: {epoch} |  Amt Loss: {cumulative_loss:.5f}')
+            print(f'Epoch: {epoch} |  Loss: {cumulative_loss:.5f}')
 
     return weights, biases
 
