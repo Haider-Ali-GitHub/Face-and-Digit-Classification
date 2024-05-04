@@ -1,3 +1,4 @@
+import config
 import data_reader
 import os
 def load_data_and_labels(images_path, labels_path, size):
@@ -19,11 +20,6 @@ def load_data_and_labels(images_path, labels_path, size):
     print("-------------------------------------------------")
     return images, labels
 
-FACE_DIR = 'data/facedata'
-DIGIT_DIR = 'data/digitdata'
-
-FACE_IMAGE_SIZE = 70
-DIGIT_IMAGE_SIZE = 28
 
 face_datasets = {
     'test': ('facedatatest', 'facedatatestlabels'),
@@ -38,14 +34,14 @@ digit_datasets = {
 }
 
 for name, (img_file, label_file) in digit_datasets.items():
-    images_path = os.path.join(DIGIT_DIR, img_file)
-    labels_path = os.path.join(DIGIT_DIR, label_file)
-    digit_images, digit_labels = load_data_and_labels(images_path, labels_path, DIGIT_IMAGE_SIZE)
+    images_path = os.path.join(config.DIGIT_DIR, img_file)
+    labels_path = os.path.join(config.DIGIT_DIR, label_file)
+    digit_images, digit_labels = load_data_and_labels(images_path, labels_path, config.DIGIT_IMAGE_SIZE)
     flat_digit_images = data_reader.flatten_images(digit_images)
 
 for name, (img_file, label_file) in face_datasets.items():
-    images_path = os.path.join(FACE_DIR, img_file)
-    labels_path = os.path.join(FACE_DIR, label_file)
-    face_images, face_labels = load_data_and_labels(images_path, labels_path, FACE_IMAGE_SIZE)
+    images_path = os.path.join(config.FACE_DIR, img_file)
+    labels_path = os.path.join(config.FACE_DIR, label_file)
+    face_images, face_labels = load_data_and_labels(images_path, labels_path, config.FACE_IMAGE_SIZE)
     flat_face_images = data_reader.flatten_images(face_images)
 
