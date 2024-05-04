@@ -1,5 +1,5 @@
 import numpy as np
-from perceptron_file_utils import convert_file_to_images, convert_labels_to_one_hot, convert_data_to_binary, convert_labels_to_data
+from digit_data_reader import load_images_from_file, create_one_hot_labels_from_file, transform_to_binary_values, load_integer_labels_from_file
 
 
 def relu(x):
@@ -31,7 +31,7 @@ class NeuralNetwork:
         self.hidden_size = hidden_size
         self.output_size = output_size
 
-        self.weights_input_hidden = np.random.randn(self.input_size, self.hidden_size) * np.sqrt(2. / self.input_size) # chooses a nice one
+        self.weights_input_hidden = np.random.randn(self.input_size, self.hidden_size) * np.sqrt(2. / self.input_size) 
         self.weights_hidden_process = np.random.randn(self.hidden_size, self.output_size) * np.sqrt(1. / self.hidden_size)
 
         self.bias_hidden = np.zeros((1, self.hidden_size))
@@ -39,7 +39,7 @@ class NeuralNetwork:
 
     def forward(self, inputs):
         self.hidden_input = np.dot(inputs, self.weights_input_hidden) + self.bias_hidden
-        self.hidden_process = relu(self.hidden_input) # uses relu here and sigmoid below to prevent gradient loss
+        self.hidden_process = relu(self.hidden_input) 
         self.output_input = np.dot(self.hidden_process, self.weights_hidden_process) + self.bias_output
         self.output_process = sigmoid(self.output_input)
         return self.output_process
@@ -47,7 +47,7 @@ class NeuralNetwork:
     def backpropagation(self, inputs, y_true, lr):
         d_output = self.output_process - y_true
         error_hidden = d_output.dot(self.weights_hidden_process.T)
-        d_hidden = error_hidden * relu_derivative(self.hidden_process) #derivative wrt the error
+        d_hidden = error_hidden * relu_derivative(self.hidden_process)
 
         self.weights_hidden_process -= self.hidden_process.T.dot(d_output) * lr
         self.bias_output -= np.sum(d_output, axis=0, keepdims=True) * lr
@@ -71,7 +71,7 @@ class NeuralNetwork:
                 loss = cross_entropy_loss(batch_y_true, self.output_process)
                 self.backpropagation(batch_inputs, batch_y_true, lr)
 
-            if epoch % 10 == 0: #modify printing the error here
+            if epoch % 10 == 0: 
                 print(f'Epoch {epoch}, Loss: {loss:.4f}')
 
 def predict(validation_images, weights_input_hidden, weights_hidden_process, bias_hidden, bias_output):
@@ -95,17 +95,17 @@ def main():
     test_data_path = "data/digitdata/testimages"
     test_labels_path = "data/digitdata/testlabels"
 
-    training_data = np.array(convert_file_to_images(training_data_path))
-    training_labels = np.array(convert_labels_to_one_hot(training_labels_path))
-    training_data = convert_data_to_binary(training_data)
+    training_data = np.array(load_images_from_file(training_data_path))
+    training_labels = np.array(create_one_hot_labels_from_file(training_labels_path))
+    training_data = transform_to_binary_values(training_data)
     training_data = np.reshape(training_data, (5000, 560))
 
     nn.train(training_data, training_labels, lr=0.001, epochs=100, batch_size=32)
     print("TRAINING COMPLETED")
 
-    validation_data = np.array(convert_file_to_images(validation_data_path))
-    validation_data = convert_data_to_binary(validation_data)
-    validation_labels = np.array(convert_labels_to_data(validation_labels_path))
+    validation_data = np.array(load_images_from_file(validation_data_path))
+    validation_data = transform_to_binary_values(validation_data)
+    validation_labels = np.array(load_integer_labels_from_file(validation_labels_path))
     validation_data = np.reshape(validation_data, (1000, 560))
     print("VALIDATION COMPLETED")
 

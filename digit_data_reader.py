@@ -1,57 +1,61 @@
-import numpy as np
+import numpy as np  # Importing the numpy library as np
 
-def convert_file_to_images(filename):
-    with open(filename, 'r') as file:
-        lines = file.readlines()
+def load_images_from_file(filepath):
+    # Open a file to read image data blocks
+    with open(filepath, 'r') as file:
+        content = file.readlines()
 
-    arrays = [] 
-    i = 0
-    while i < len(lines):
-        if lines[i].strip():  
-            if i + 20 < len(lines):
-                block = lines[i:i+20]
-                i += 20  
-            else:
-                block = lines[i:]
-                i = len(lines)
-            array = np.array([list(line.rstrip('\n')) for line in block])
-            arrays.append(array)
+    images = []
+    index = 0
+    # Process each line to form image data arrays
+    while index < len(content):
+        if content[index].strip():
+            limit = index + 20 if index + 20 < len(content) else len(content)
+            block = content[index:limit]
+            index = limit
+            # Form a numpy array for each block of image data
+            image_array = np.array([list(line.strip('\n')) for line in block])
+            images.append(image_array)
         else:
-            i += 1
+            index += 1
 
-    return arrays
+    return images
 
-def convert_labels_to_one_hot(filename):
-    with open(filename, 'r') as file:
-        lines = file.readlines()
-    
-    arrays = []
+def create_one_hot_labels_from_file(filepath):
+    # Open a file to read and convert labels to one-hot encoded vectors
+    with open(filepath, 'r') as file:
+        content = file.readlines()
 
-    for line in lines:
-        index = int(line.strip())
-        one_hot_vector = np.zeros(10, dtype=int)
-        one_hot_vector[index] = 1
-        arrays.append(one_hot_vector)
+    one_hot_labels = []
 
-    return arrays
+    for item in content:
+        position = int(item.strip())
+        # Generate a one-hot vector for each label
+        vector = np.zeros(10, dtype=int)
+        vector[position] = 1
+        one_hot_labels.append(vector)
 
-def convert_labels_to_data(filename):
-    with open(filename, 'r') as file:
-        lines = file.readlines()
-    
-    arrays = []
+    return one_hot_labels
 
-    for line in lines:
-        index = int(line.strip())
-        arrays.append(index)
+def load_integer_labels_from_file(filepath):
+    # Read integer labels from a file
+    with open(filepath, 'r') as file:
+        content = file.readlines()
 
-    return arrays
+    integer_labels = []
 
-def convert_data_to_binary(array):
-    binary_array = np.zeros(array.shape, dtype=int)
-    for i in range(array.shape[0]):
-        for j in range(array.shape[1]):
-            for k in range(array.shape[2]):
-                if array[i, j, k] != ' ':
-                    binary_array[i, j, k] = 1
-    return binary_array
+    for item in content:
+        label = int(item.strip())
+        integer_labels.append(label)
+
+    return integer_labels
+
+def transform_to_binary_values(char_array):
+    # Convert a character array into a binary array based on non-space values
+    binary_representation = np.zeros(char_array.shape, dtype=int)
+    for i in range(char_array.shape[0]):
+        for j in range(char_array.shape[1]):
+            for k in range(char_array.shape[2]):
+                binary_representation[i, j, k] = 1 if char_array[i, j, k] != ' ' else 0
+
+    return binary_representation
