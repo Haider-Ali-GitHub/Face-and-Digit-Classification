@@ -1,4 +1,4 @@
-from main import flat_digit_images, digit_labels
+from main import flat_digit_images, digit_labels, flat_face_images, face_labels
 import numpy as np
 
 class Perceptron:
@@ -30,8 +30,8 @@ class Perceptron:
 
 # Example usage
 perceptron = Perceptron()
-training_inputs = np.array(flat_digit_images, dtype=np.float32) 
-labels = np.array(digit_labels, dtype=np.float32)
+training_inputs = np.array(flat_face_images, dtype=np.float32) 
+labels = np.array(face_labels, dtype=np.float32)
 
 split_index = int(len(training_inputs) * 0.963)
 train_inputs, test_inputs = training_inputs[:split_index], training_inputs[split_index:]
