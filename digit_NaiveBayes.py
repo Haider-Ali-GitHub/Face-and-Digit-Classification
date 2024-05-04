@@ -12,7 +12,9 @@ class NaiveBayesClassifier:
         self.totalData = 0
 
     def train(self, trainingData, trainingLabels):
-        for datum, label in zip(trainingData, trainingLabels):
+        total_items = len(trainingData)
+        print(f"Starting training on {total_items} items...")
+        for index, (datum, label) in enumerate(zip(trainingData, trainingLabels)):
             label = str(label)  # Convert label to string to prevent type issues
             self.labelCounts[label] += 1
             for feature, value in datum.items():
@@ -22,7 +24,11 @@ class NaiveBayesClassifier:
                     self.featureCounts[label][feature]['True'] += 1
                 else:
                     self.featureCounts[label][feature]['False'] += 1
+            # Print progress every 100 items processed or last item
+            if (index + 1) % 100 == 0 or (index + 1) == total_items:
+                print(f"Processed {index + 1}/{total_items} training items...")
         self.totalData = sum(self.labelCounts.values())
+        print("Training complete.")
 
 
     def classify(self, testData):
