@@ -137,10 +137,7 @@ def load_data_and_labels(images_path, labels_path, size):
     Returns:
     tuple: A tuple containing two lists - one for images and one for labels.
     """
-    print(f"Loading data from {images_path} and labels from {labels_path}")
     images = read_images(images_path, size)
     labels = read_labels(labels_path)
-    print(f"Loaded {len(labels)} labels and {len(images)} images.")
-    print("-------------------------------------------------")
     return images, labels
 
