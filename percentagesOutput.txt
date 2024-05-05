@@ -1,0 +1,1599 @@
+
+FACES
+------
+
+Testing with 10% of the training data for FACE DATASET:
+-------------------------------------------------------------
+
+ PERCEPTRON: Preparing data for 10% of Face training data...
+
+PERCEPTRON: Training with 10% of data...
+Epoch 1 Validation Accuracy: 60.80%
+Epoch 2 Validation Accuracy: 61.79%
+Epoch 3 Validation Accuracy: 71.43%
+Epoch 4 Validation Accuracy: 68.44%
+Epoch 5 Validation Accuracy: 68.44%
+Epoch 6 Validation Accuracy: 68.44%
+Epoch 7 Validation Accuracy: 68.44%
+Epoch 8 Validation Accuracy: 68.44%
+Epoch 9 Validation Accuracy: 68.44%
+Epoch 10 Validation Accuracy: 68.44%
+Epoch 11 Validation Accuracy: 68.44%
+Epoch 12 Validation Accuracy: 68.44%
+Epoch 13 Validation Accuracy: 68.44%
+Stopped early @ Epoch 13. Best validation accuracy: 71.43%
+
+PERCEPTRON: Face Training Completed (Training time: 0.04s)
+PERCEPTRON: Face Validation Completed
+PERCEPTRON: Final Face Accuracy on Face Test Set: 65.33% 
+
+NEURAL NETWORK: Preparing 10% of Face data...
+NEURAL NETWORK: Training with 10% of Face data...
+Epoch: 0 |  Loss: 0.71239
+Epoch: 5 |  Loss: 0.32841
+Epoch: 10 |  Loss: 0.20981
+Epoch: 15 |  Loss: 0.11186
+Epoch: 20 |  Loss: 0.08083
+Epoch: 25 |  Loss: 0.06066
+Epoch: 30 |  Loss: 0.04675
+Epoch: 35 |  Loss: 0.02790
+Epoch: 40 |  Loss: 0.03605
+Epoch: 45 |  Loss: 0.02473
+Epoch: 50 |  Loss: 0.01739
+Epoch: 55 |  Loss: 0.01640
+Epoch: 60 |  Loss: 0.01445
+Epoch: 65 |  Loss: 0.00934
+Epoch: 70 |  Loss: 0.01438
+Epoch: 75 |  Loss: 0.01166
+Epoch: 80 |  Loss: 0.01137
+Epoch: 85 |  Loss: 0.01085
+Epoch: 90 |  Loss: 0.00890
+Epoch: 95 |  Loss: 0.00757
+NEURAL NETWORK: Training Completed  (Training time: 1.88s)
+NEURAL NETWORK: Validation Completed
+NEURAL NETWORK: Face Validation Accuracy: 63.12%
+NEURAL NETWORK: Face Test Accuracy: 58.67%  (Elapsed time: 1.90s)
+
+NAIVE BAYES - Faces: Training with 10% of the data
+Starting training on 45 items...
+Processed 45/45 training images...
+Naive Bayes: Training Completed (Training time: 0.05s)
+Face Validation Accuracy: 76.74% (Elapsed time: 1.37s)
+Face Test Accuracy: 76.67% (Elapsed time: 1.37s)
+
+Testing with 20% of the training data for FACE DATASET:
+-------------------------------------------------------------
+
+ PERCEPTRON: Preparing data for 20% of Face training data...
+
+PERCEPTRON: Training with 20% of data...
+Epoch 1 Validation Accuracy: 57.48%
+Epoch 2 Validation Accuracy: 75.08%
+Epoch 3 Validation Accuracy: 75.42%
+Epoch 4 Validation Accuracy: 58.14%
+Epoch 5 Validation Accuracy: 81.06%
+Epoch 6 Validation Accuracy: 80.07%
+Epoch 7 Validation Accuracy: 80.07%
+Epoch 8 Validation Accuracy: 80.07%
+Epoch 9 Validation Accuracy: 80.07%
+Epoch 10 Validation Accuracy: 80.07%
+Epoch 11 Validation Accuracy: 80.07%
+Epoch 12 Validation Accuracy: 80.07%
+Epoch 13 Validation Accuracy: 80.07%
+Epoch 14 Validation Accuracy: 80.07%
+Epoch 15 Validation Accuracy: 80.07%
+Stopped early @ Epoch 15. Best validation accuracy: 81.06%
+
+PERCEPTRON: Face Training Completed (Training time: 0.06s)
+PERCEPTRON: Face Validation Completed
+PERCEPTRON: Final Face Accuracy on Face Test Set: 83.33% 
+
+NEURAL NETWORK: Preparing 20% of Face data...
+NEURAL NETWORK: Training with 20% of Face data...
+Epoch: 0 |  Loss: 0.69089
+Epoch: 5 |  Loss: 0.22524
+Epoch: 10 |  Loss: 0.11050
+Epoch: 15 |  Loss: 0.06294
+Epoch: 20 |  Loss: 0.04517
+Epoch: 25 |  Loss: 0.03619
+Epoch: 30 |  Loss: 0.01935
+Epoch: 35 |  Loss: 0.01954
+Epoch: 40 |  Loss: 0.01828
+Epoch: 45 |  Loss: 0.01478
+Epoch: 50 |  Loss: 0.01426
+Epoch: 55 |  Loss: 0.01019
+Epoch: 60 |  Loss: 0.00898
+Epoch: 65 |  Loss: 0.00866
+Epoch: 70 |  Loss: 0.00803
+Epoch: 75 |  Loss: 0.00650
+Epoch: 80 |  Loss: 0.00623
+Epoch: 85 |  Loss: 0.00660
+Epoch: 90 |  Loss: 0.00484
+Epoch: 95 |  Loss: 0.00641
+NEURAL NETWORK: Training Completed  (Training time: 4.01s)
+NEURAL NETWORK: Validation Completed
+NEURAL NETWORK: Face Validation Accuracy: 77.74%
+NEURAL NETWORK: Face Test Accuracy: 77.33%  (Elapsed time: 4.04s)
+
+NAIVE BAYES - Faces: Training with 20% of the data
+Starting training on 90 items...
+Processed 90/90 training images...
+Naive Bayes: Training Completed (Training time: 0.10s)
+Face Validation Accuracy: 79.07% (Elapsed time: 1.42s)
+Face Test Accuracy: 80.00% (Elapsed time: 1.42s)
+
+Testing with 30% of the training data for FACE DATASET:
+-------------------------------------------------------------
+
+ PERCEPTRON: Preparing data for 30% of Face training data...
+
+PERCEPTRON: Training with 30% of data...
+Epoch 1 Validation Accuracy: 48.17%
+Epoch 2 Validation Accuracy: 72.76%
+Epoch 3 Validation Accuracy: 52.49%
+Epoch 4 Validation Accuracy: 83.39%
+Epoch 5 Validation Accuracy: 68.44%
+Epoch 6 Validation Accuracy: 80.40%
+Epoch 7 Validation Accuracy: 80.40%
+Epoch 8 Validation Accuracy: 80.40%
+Epoch 9 Validation Accuracy: 80.40%
+Epoch 10 Validation Accuracy: 80.40%
+Epoch 11 Validation Accuracy: 80.40%
+Epoch 12 Validation Accuracy: 80.40%
+Epoch 13 Validation Accuracy: 80.40%
+Epoch 14 Validation Accuracy: 80.40%
+Stopped early @ Epoch 14. Best validation accuracy: 83.39%
+
+PERCEPTRON: Face Training Completed (Training time: 0.08s)
+PERCEPTRON: Face Validation Completed
+PERCEPTRON: Final Face Accuracy on Face Test Set: 81.33% 
+
+NEURAL NETWORK: Preparing 30% of Face data...
+NEURAL NETWORK: Training with 30% of Face data...
+Epoch: 0 |  Loss: 0.74657
+Epoch: 5 |  Loss: 0.28973
+Epoch: 10 |  Loss: 0.11706
+Epoch: 15 |  Loss: 0.05263
+Epoch: 20 |  Loss: 0.04065
+Epoch: 25 |  Loss: 0.02436
+Epoch: 30 |  Loss: 0.01919
+Epoch: 35 |  Loss: 0.01540
+Epoch: 40 |  Loss: 0.01896
+Epoch: 45 |  Loss: 0.00809
+Epoch: 50 |  Loss: 0.00876
+Epoch: 55 |  Loss: 0.00631
+Epoch: 60 |  Loss: 0.00513
+Epoch: 65 |  Loss: 0.00542
+Epoch: 70 |  Loss: 0.00601
+Epoch: 75 |  Loss: 0.00658
+Epoch: 80 |  Loss: 0.00465
+Epoch: 85 |  Loss: 0.00458
+Epoch: 90 |  Loss: 0.00440
+Epoch: 95 |  Loss: 0.00385
+NEURAL NETWORK: Training Completed  (Training time: 6.26s)
+NEURAL NETWORK: Validation Completed
+NEURAL NETWORK: Face Validation Accuracy: 85.38%
+NEURAL NETWORK: Face Test Accuracy: 80.67%  (Elapsed time: 6.32s)
+
+NAIVE BAYES - Faces: Training with 30% of the data
+Starting training on 135 items...
+Processed 100/135 training images...
+Processed 135/135 training images...
+Naive Bayes: Training Completed (Training time: 0.16s)
+Face Validation Accuracy: 82.06% (Elapsed time: 1.61s)
+Face Test Accuracy: 84.67% (Elapsed time: 1.61s)
+
+Testing with 40% of the training data for FACE DATASET:
+-------------------------------------------------------------
+
+ PERCEPTRON: Preparing data for 40% of Face training data...
+
+PERCEPTRON: Training with 40% of data...
+Epoch 1 Validation Accuracy: 49.83%
+Epoch 2 Validation Accuracy: 83.06%
+Epoch 3 Validation Accuracy: 81.40%
+Epoch 4 Validation Accuracy: 83.39%
+Epoch 5 Validation Accuracy: 83.06%
+Epoch 6 Validation Accuracy: 78.74%
+Epoch 7 Validation Accuracy: 79.40%
+Epoch 8 Validation Accuracy: 82.06%
+Epoch 9 Validation Accuracy: 83.72%
+Epoch 10 Validation Accuracy: 83.72%
+Epoch 11 Validation Accuracy: 83.72%
+Epoch 12 Validation Accuracy: 83.72%
+Epoch 13 Validation Accuracy: 83.72%
+Epoch 14 Validation Accuracy: 83.72%
+Epoch 15 Validation Accuracy: 83.72%
+Epoch 16 Validation Accuracy: 83.72%
+Epoch 17 Validation Accuracy: 83.72%
+Epoch 18 Validation Accuracy: 83.72%
+Epoch 19 Validation Accuracy: 83.72%
+Stopped early @ Epoch 19. Best validation accuracy: 83.72%
+
+PERCEPTRON: Face Training Completed (Training time: 0.10s)
+PERCEPTRON: Face Validation Completed
+PERCEPTRON: Final Face Accuracy on Face Test Set: 87.33% 
+
+NEURAL NETWORK: Preparing 40% of Face data...
+NEURAL NETWORK: Training with 40% of Face data...
+Epoch: 0 |  Loss: 0.77451
+Epoch: 5 |  Loss: 0.21008
+Epoch: 10 |  Loss: 0.09058
+Epoch: 15 |  Loss: 0.04606
+Epoch: 20 |  Loss: 0.03078
+Epoch: 25 |  Loss: 0.01712
+Epoch: 30 |  Loss: 0.01436
+Epoch: 35 |  Loss: 0.01176
+Epoch: 40 |  Loss: 0.00721
+Epoch: 45 |  Loss: 0.00782
+Epoch: 50 |  Loss: 0.00647
+Epoch: 55 |  Loss: 0.00576
+Epoch: 60 |  Loss: 0.00582
+Epoch: 65 |  Loss: 0.00451
+Epoch: 70 |  Loss: 0.00482
+Epoch: 75 |  Loss: 0.00407
+Epoch: 80 |  Loss: 0.00391
+Epoch: 85 |  Loss: 0.00353
+Epoch: 90 |  Loss: 0.00286
+Epoch: 95 |  Loss: 0.00313
+NEURAL NETWORK: Training Completed  (Training time: 6.17s)
+NEURAL NETWORK: Validation Completed
+NEURAL NETWORK: Face Validation Accuracy: 82.72%
+NEURAL NETWORK: Face Test Accuracy: 83.33%  (Elapsed time: 6.19s)
+
+NAIVE BAYES - Faces: Training with 40% of the data
+Starting training on 180 items...
+Processed 100/180 training images...
+Processed 180/180 training images...
+Naive Bayes: Training Completed (Training time: 0.21s)
+Face Validation Accuracy: 87.04% (Elapsed time: 1.51s)
+Face Test Accuracy: 89.33% (Elapsed time: 1.51s)
+
+Testing with 50% of the training data for FACE DATASET:
+-------------------------------------------------------------
+
+ PERCEPTRON: Preparing data for 50% of Face training data...
+
+PERCEPTRON: Training with 50% of data...
+Epoch 1 Validation Accuracy: 60.80%
+Epoch 2 Validation Accuracy: 80.40%
+Epoch 3 Validation Accuracy: 82.39%
+Epoch 4 Validation Accuracy: 81.73%
+Epoch 5 Validation Accuracy: 87.04%
+Epoch 6 Validation Accuracy: 87.38%
+Epoch 7 Validation Accuracy: 87.38%
+Epoch 8 Validation Accuracy: 87.38%
+Epoch 9 Validation Accuracy: 87.38%
+Epoch 10 Validation Accuracy: 87.38%
+Epoch 11 Validation Accuracy: 87.38%
+Epoch 12 Validation Accuracy: 87.38%
+Epoch 13 Validation Accuracy: 87.38%
+Epoch 14 Validation Accuracy: 87.38%
+Epoch 15 Validation Accuracy: 87.38%
+Epoch 16 Validation Accuracy: 87.38%
+Stopped early @ Epoch 16. Best validation accuracy: 87.38%
+
+PERCEPTRON: Face Training Completed (Training time: 0.19s)
+PERCEPTRON: Face Validation Completed
+PERCEPTRON: Final Face Accuracy on Face Test Set: 86.00% 
+
+NEURAL NETWORK: Preparing 50% of Face data...
+NEURAL NETWORK: Training with 50% of Face data...
+Epoch: 0 |  Loss: 0.60050
+Epoch: 5 |  Loss: 0.17528
+Epoch: 10 |  Loss: 0.06593
+Epoch: 15 |  Loss: 0.01979
+Epoch: 20 |  Loss: 0.04327
+Epoch: 25 |  Loss: 0.02278
+Epoch: 30 |  Loss: 0.03110
+Epoch: 35 |  Loss: 0.00280
+Epoch: 40 |  Loss: 0.01287
+Epoch: 45 |  Loss: 0.01010
+Epoch: 50 |  Loss: 0.00664
+Epoch: 55 |  Loss: 0.00345
+Epoch: 60 |  Loss: 0.00619
+Epoch: 65 |  Loss: 0.00237
+Epoch: 70 |  Loss: 0.00586
+Epoch: 75 |  Loss: 0.00350
+Epoch: 80 |  Loss: 0.00211
+Epoch: 85 |  Loss: 0.00635
+Epoch: 90 |  Loss: 0.00230
+Epoch: 95 |  Loss: 0.00188
+NEURAL NETWORK: Training Completed  (Training time: 8.42s)
+NEURAL NETWORK: Validation Completed
+NEURAL NETWORK: Face Validation Accuracy: 86.05%
+NEURAL NETWORK: Face Test Accuracy: 87.33%  (Elapsed time: 8.45s)
+
+NAIVE BAYES - Faces: Training with 50% of the data
+Starting training on 225 items...
+Processed 100/225 training images...
+Processed 200/225 training images...
+Processed 225/225 training images...
+Naive Bayes: Training Completed (Training time: 0.25s)
+Face Validation Accuracy: 87.04% (Elapsed time: 1.60s)
+Face Test Accuracy: 87.33% (Elapsed time: 1.60s)
+
+Testing with 60% of the training data for FACE DATASET:
+-------------------------------------------------------------
+
+ PERCEPTRON: Preparing data for 60% of Face training data...
+
+PERCEPTRON: Training with 60% of data...
+Epoch 1 Validation Accuracy: 74.42%
+Epoch 2 Validation Accuracy: 84.39%
+Epoch 3 Validation Accuracy: 86.38%
+Epoch 4 Validation Accuracy: 85.38%
+Epoch 5 Validation Accuracy: 86.38%
+Epoch 6 Validation Accuracy: 73.42%
+Epoch 7 Validation Accuracy: 86.38%
+Epoch 8 Validation Accuracy: 86.38%
+Epoch 9 Validation Accuracy: 86.38%
+Epoch 10 Validation Accuracy: 86.38%
+Epoch 11 Validation Accuracy: 86.38%
+Epoch 12 Validation Accuracy: 86.38%
+Epoch 13 Validation Accuracy: 86.38%
+Stopped early @ Epoch 13. Best validation accuracy: 86.38%
+
+PERCEPTRON: Face Training Completed (Training time: 0.11s)
+PERCEPTRON: Face Validation Completed
+PERCEPTRON: Final Face Accuracy on Face Test Set: 85.33% 
+
+NEURAL NETWORK: Preparing 60% of Face data...
+NEURAL NETWORK: Training with 60% of Face data...
+Epoch: 0 |  Loss: 0.68288
+Epoch: 5 |  Loss: 0.16309
+Epoch: 10 |  Loss: 0.05961
+Epoch: 15 |  Loss: 0.04263
+Epoch: 20 |  Loss: 0.02766
+Epoch: 25 |  Loss: 0.01436
+Epoch: 30 |  Loss: 0.00926
+Epoch: 35 |  Loss: 0.01467
+Epoch: 40 |  Loss: 0.01127
+Epoch: 45 |  Loss: 0.00505
+Epoch: 50 |  Loss: 0.00444
+Epoch: 55 |  Loss: 0.00512
+Epoch: 60 |  Loss: 0.00398
+Epoch: 65 |  Loss: 0.00292
+Epoch: 70 |  Loss: 0.00223
+Epoch: 75 |  Loss: 0.00277
+Epoch: 80 |  Loss: 0.00376
+Epoch: 85 |  Loss: 0.00261
+Epoch: 90 |  Loss: 0.00269
+Epoch: 95 |  Loss: 0.00235
+NEURAL NETWORK: Training Completed  (Training time: 9.18s)
+NEURAL NETWORK: Validation Completed
+NEURAL NETWORK: Face Validation Accuracy: 86.71%
+NEURAL NETWORK: Face Test Accuracy: 89.33%  (Elapsed time: 9.20s)
+
+NAIVE BAYES - Faces: Training with 60% of the data
+Starting training on 270 items...
+Processed 100/270 training images...
+Processed 200/270 training images...
+Processed 270/270 training images...
+Naive Bayes: Training Completed (Training time: 0.31s)
+Face Validation Accuracy: 86.38% (Elapsed time: 1.66s)
+Face Test Accuracy: 88.00% (Elapsed time: 1.66s)
+
+Testing with 70% of the training data for FACE DATASET:
+-------------------------------------------------------------
+
+ PERCEPTRON: Preparing data for 70% of Face training data...
+
+PERCEPTRON: Training with 70% of data...
+Epoch 1 Validation Accuracy: 71.76%
+Epoch 2 Validation Accuracy: 77.74%
+Epoch 3 Validation Accuracy: 83.06%
+Epoch 4 Validation Accuracy: 84.39%
+Epoch 5 Validation Accuracy: 88.37%
+Epoch 6 Validation Accuracy: 88.37%
+Epoch 7 Validation Accuracy: 88.04%
+Epoch 8 Validation Accuracy: 70.10%
+Epoch 9 Validation Accuracy: 88.37%
+Epoch 10 Validation Accuracy: 88.37%
+Epoch 11 Validation Accuracy: 88.37%
+Epoch 12 Validation Accuracy: 88.37%
+Epoch 13 Validation Accuracy: 88.37%
+Epoch 14 Validation Accuracy: 88.37%
+Epoch 15 Validation Accuracy: 88.37%
+Stopped early @ Epoch 15. Best validation accuracy: 88.37%
+
+PERCEPTRON: Face Training Completed (Training time: 0.14s)
+PERCEPTRON: Face Validation Completed
+PERCEPTRON: Final Face Accuracy on Face Test Set: 89.33% 
+
+NEURAL NETWORK: Preparing 70% of Face data...
+NEURAL NETWORK: Training with 70% of Face data...
+Epoch: 0 |  Loss: 0.70864
+Epoch: 5 |  Loss: 0.17434
+Epoch: 10 |  Loss: 0.04602
+Epoch: 15 |  Loss: 0.03277
+Epoch: 20 |  Loss: 0.01871
+Epoch: 25 |  Loss: 0.01251
+Epoch: 30 |  Loss: 0.01051
+Epoch: 35 |  Loss: 0.00729
+Epoch: 40 |  Loss: 0.00595
+Epoch: 45 |  Loss: 0.00532
+Epoch: 50 |  Loss: 0.00546
+Epoch: 55 |  Loss: 0.00380
+Epoch: 60 |  Loss: 0.00423
+Epoch: 65 |  Loss: 0.00314
+Epoch: 70 |  Loss: 0.00311
+Epoch: 75 |  Loss: 0.00257
+Epoch: 80 |  Loss: 0.00230
+Epoch: 85 |  Loss: 0.00193
+Epoch: 90 |  Loss: 0.00241
+Epoch: 95 |  Loss: 0.00200
+NEURAL NETWORK: Training Completed  (Training time: 10.35s)
+NEURAL NETWORK: Validation Completed
+NEURAL NETWORK: Face Validation Accuracy: 89.04%
+NEURAL NETWORK: Face Test Accuracy: 88.00%  (Elapsed time: 10.37s)
+
+NAIVE BAYES - Faces: Training with 70% of the data
+Starting training on 315 items...
+Processed 100/315 training images...
+Processed 200/315 training images...
+Processed 300/315 training images...
+Processed 315/315 training images...
+Naive Bayes: Training Completed (Training time: 0.36s)
+Face Validation Accuracy: 86.38% (Elapsed time: 1.65s)
+Face Test Accuracy: 89.33% (Elapsed time: 1.65s)
+
+Testing with 80% of the training data for FACE DATASET:
+-------------------------------------------------------------
+
+ PERCEPTRON: Preparing data for 80% of Face training data...
+
+PERCEPTRON: Training with 80% of data...
+Epoch 1 Validation Accuracy: 76.08%
+Epoch 2 Validation Accuracy: 72.09%
+Epoch 3 Validation Accuracy: 77.41%
+Epoch 4 Validation Accuracy: 86.71%
+Epoch 5 Validation Accuracy: 89.04%
+Epoch 6 Validation Accuracy: 88.04%
+Epoch 7 Validation Accuracy: 88.04%
+Epoch 8 Validation Accuracy: 88.04%
+Epoch 9 Validation Accuracy: 88.04%
+Epoch 10 Validation Accuracy: 88.04%
+Epoch 11 Validation Accuracy: 88.04%
+Epoch 12 Validation Accuracy: 88.04%
+Epoch 13 Validation Accuracy: 88.04%
+Epoch 14 Validation Accuracy: 88.04%
+Epoch 15 Validation Accuracy: 88.04%
+Stopped early @ Epoch 15. Best validation accuracy: 89.04%
+
+PERCEPTRON: Face Training Completed (Training time: 0.14s)
+PERCEPTRON: Face Validation Completed
+PERCEPTRON: Final Face Accuracy on Face Test Set: 87.33% 
+
+NEURAL NETWORK: Preparing 80% of Face data...
+NEURAL NETWORK: Training with 80% of Face data...
+Epoch: 0 |  Loss: 0.68517
+Epoch: 5 |  Loss: 0.11081
+Epoch: 10 |  Loss: 0.03581
+Epoch: 15 |  Loss: 0.01331
+Epoch: 20 |  Loss: 0.00926
+Epoch: 25 |  Loss: 0.01312
+Epoch: 30 |  Loss: 0.00845
+Epoch: 35 |  Loss: 0.00710
+Epoch: 40 |  Loss: 0.00432
+Epoch: 45 |  Loss: 0.00356
+Epoch: 50 |  Loss: 0.00479
+Epoch: 55 |  Loss: 0.00370
+Epoch: 60 |  Loss: 0.00350
+Epoch: 65 |  Loss: 0.00396
+Epoch: 70 |  Loss: 0.00131
+Epoch: 75 |  Loss: 0.00189
+Epoch: 80 |  Loss: 0.00321
+Epoch: 85 |  Loss: 0.00125
+Epoch: 90 |  Loss: 0.00218
+Epoch: 95 |  Loss: 0.00140
+NEURAL NETWORK: Training Completed  (Training time: 14.48s)
+NEURAL NETWORK: Validation Completed
+NEURAL NETWORK: Face Validation Accuracy: 88.04%
+NEURAL NETWORK: Face Test Accuracy: 89.33%  (Elapsed time: 14.51s)
+
+NAIVE BAYES - Faces: Training with 80% of the data
+Starting training on 360 items...
+Processed 100/360 training images...
+Processed 200/360 training images...
+Processed 300/360 training images...
+Processed 360/360 training images...
+Naive Bayes: Training Completed (Training time: 0.38s)
+Face Validation Accuracy: 86.38% (Elapsed time: 1.73s)
+Face Test Accuracy: 88.67% (Elapsed time: 1.73s)
+
+Testing with 90% of the training data for FACE DATASET:
+-------------------------------------------------------------
+
+ PERCEPTRON: Preparing data for 90% of Face training data...
+
+PERCEPTRON: Training with 90% of data...
+Epoch 1 Validation Accuracy: 86.05%
+Epoch 2 Validation Accuracy: 84.39%
+Epoch 3 Validation Accuracy: 86.71%
+Epoch 4 Validation Accuracy: 83.06%
+Epoch 5 Validation Accuracy: 81.06%
+Epoch 6 Validation Accuracy: 87.04%
+Epoch 7 Validation Accuracy: 86.71%
+Epoch 8 Validation Accuracy: 86.71%
+Epoch 9 Validation Accuracy: 86.38%
+Epoch 10 Validation Accuracy: 88.37%
+Epoch 11 Validation Accuracy: 88.37%
+Epoch 12 Validation Accuracy: 88.37%
+Epoch 13 Validation Accuracy: 88.37%
+Epoch 14 Validation Accuracy: 88.37%
+Epoch 15 Validation Accuracy: 88.37%
+Epoch 16 Validation Accuracy: 88.37%
+Epoch 17 Validation Accuracy: 88.37%
+Epoch 18 Validation Accuracy: 88.37%
+Epoch 19 Validation Accuracy: 88.37%
+Epoch 20 Validation Accuracy: 88.37%
+Stopped early @ Epoch 20. Best validation accuracy: 88.37%
+
+PERCEPTRON: Face Training Completed (Training time: 0.21s)
+PERCEPTRON: Face Validation Completed
+PERCEPTRON: Final Face Accuracy on Face Test Set: 90.00% 
+
+NEURAL NETWORK: Preparing 90% of Face data...
+NEURAL NETWORK: Training with 90% of Face data...
+Epoch: 0 |  Loss: 0.66267
+Epoch: 5 |  Loss: 0.13658
+Epoch: 10 |  Loss: 0.04657
+Epoch: 15 |  Loss: 0.02344
+Epoch: 20 |  Loss: 0.02118
+Epoch: 25 |  Loss: 0.00835
+Epoch: 30 |  Loss: 0.00878
+Epoch: 35 |  Loss: 0.00778
+Epoch: 40 |  Loss: 0.00421
+Epoch: 45 |  Loss: 0.00509
+Epoch: 50 |  Loss: 0.00386
+Epoch: 55 |  Loss: 0.00276
+Epoch: 60 |  Loss: 0.00333
+Epoch: 65 |  Loss: 0.00328
+Epoch: 70 |  Loss: 0.00227
+Epoch: 75 |  Loss: 0.00118
+Epoch: 80 |  Loss: 0.00183
+Epoch: 85 |  Loss: 0.00168
+Epoch: 90 |  Loss: 0.00192
+Epoch: 95 |  Loss: 0.00162
+NEURAL NETWORK: Training Completed  (Training time: 12.70s)
+NEURAL NETWORK: Validation Completed
+NEURAL NETWORK: Face Validation Accuracy: 91.03%
+NEURAL NETWORK: Face Test Accuracy: 90.00%  (Elapsed time: 12.72s)
+
+NAIVE BAYES - Faces: Training with 90% of the data
+Starting training on 405 items...
+Processed 100/405 training images...
+Processed 200/405 training images...
+Processed 300/405 training images...
+Processed 400/405 training images...
+Processed 405/405 training images...
+Naive Bayes: Training Completed (Training time: 0.42s)
+Face Validation Accuracy: 87.04% (Elapsed time: 1.78s)
+Face Test Accuracy: 89.33% (Elapsed time: 1.78s)
+
+Testing with 100% of the training data for FACE DATASET:
+-------------------------------------------------------------
+
+ PERCEPTRON: Preparing data for 100% of Face training data...
+
+PERCEPTRON: Training with 100% of data...
+Epoch 1 Validation Accuracy: 85.05%
+Epoch 2 Validation Accuracy: 84.72%
+Epoch 3 Validation Accuracy: 87.04%
+Epoch 4 Validation Accuracy: 83.39%
+Epoch 5 Validation Accuracy: 88.04%
+Epoch 6 Validation Accuracy: 88.04%
+Epoch 7 Validation Accuracy: 85.05%
+Epoch 8 Validation Accuracy: 88.70%
+Epoch 9 Validation Accuracy: 85.38%
+Epoch 10 Validation Accuracy: 86.71%
+Epoch 11 Validation Accuracy: 87.38%
+Epoch 12 Validation Accuracy: 87.71%
+Epoch 13 Validation Accuracy: 87.71%
+Epoch 14 Validation Accuracy: 87.71%
+Epoch 15 Validation Accuracy: 87.71%
+Epoch 16 Validation Accuracy: 87.71%
+Epoch 17 Validation Accuracy: 87.71%
+Epoch 18 Validation Accuracy: 87.71%
+Stopped early @ Epoch 18. Best validation accuracy: 88.70%
+
+PERCEPTRON: Face Training Completed (Training time: 0.24s)
+PERCEPTRON: Face Validation Completed
+PERCEPTRON: Final Face Accuracy on Face Test Set: 89.33% 
+
+NEURAL NETWORK: Preparing 100% of Face data...
+NEURAL NETWORK: Training with 100% of Face data...
+Epoch: 0 |  Loss: 0.55980
+Epoch: 5 |  Loss: 0.07178
+Epoch: 10 |  Loss: 0.06720
+Epoch: 15 |  Loss: 0.02695
+Epoch: 20 |  Loss: 0.02861
+Epoch: 25 |  Loss: 0.03363
+Epoch: 30 |  Loss: 0.00676
+Epoch: 35 |  Loss: 0.00922
+Epoch: 40 |  Loss: 0.00340
+Epoch: 45 |  Loss: 0.00620
+Epoch: 50 |  Loss: 0.00226
+Epoch: 55 |  Loss: 0.00281
+Epoch: 60 |  Loss: 0.00316
+Epoch: 65 |  Loss: 0.00366
+Epoch: 70 |  Loss: 0.00413
+Epoch: 75 |  Loss: 0.00236
+Epoch: 80 |  Loss: 0.00213
+Epoch: 85 |  Loss: 0.00047
+Epoch: 90 |  Loss: 0.00083
+Epoch: 95 |  Loss: 0.00072
+NEURAL NETWORK: Training Completed  (Training time: 15.15s)
+NEURAL NETWORK: Validation Completed
+NEURAL NETWORK: Face Validation Accuracy: 89.04%
+NEURAL NETWORK: Face Test Accuracy: 90.00%  (Elapsed time: 15.17s)
+
+NAIVE BAYES - Faces: Training with 100% of the data
+Starting training on 451 items...
+Processed 100/451 training images...
+Processed 200/451 training images...
+Processed 300/451 training images...
+Processed 400/451 training images...
+Processed 451/451 training images...
+Naive Bayes: Training Completed (Training time: 0.52s)
+Face Validation Accuracy: 87.04% (Elapsed time: 1.84s)
+Face Test Accuracy: 90.67% (Elapsed time: 1.84s)
+
+DIGITS
+----------
+
+Testing with 10% of the training data for DIGIT DATASET:
+---------------------------------------------------------------
+
+PERCEPTRON - Digit: Training with 10% of data
+Training Perceptron...
+Epoch: 0 |  Loss: 1.13447
+Epoch: 5 |  Loss: 0.19011
+Epoch: 10 |  Loss: 0.09880
+Epoch: 15 |  Loss: 0.06427
+Epoch: 20 |  Loss: 0.04728
+Epoch: 25 |  Loss: 0.03735
+Epoch: 30 |  Loss: 0.03086
+Epoch: 35 |  Loss: 0.02630
+Epoch: 40 |  Loss: 0.02292
+Epoch: 45 |  Loss: 0.02032
+Epoch: 50 |  Loss: 0.01825
+Epoch: 55 |  Loss: 0.01657
+Epoch: 60 |  Loss: 0.01518
+Epoch: 65 |  Loss: 0.01400
+Epoch: 70 |  Loss: 0.01300
+Epoch: 75 |  Loss: 0.01213
+Epoch: 80 |  Loss: 0.01137
+Epoch: 85 |  Loss: 0.01070
+Epoch: 90 |  Loss: 0.01011
+Epoch: 95 |  Loss: 0.00958
+PERCEPTRON: Training Completed (Elapsed training time: 2.35s)
+PERCEPTRON: Validation Completed
+PERCEPTRON: Validation Accuracy: 82.30% (Elapsed time: 2.37s)
+PERCEPTRON: Testing Completed
+PERCEPTRON: Testing Accuracy: 79.90% (Elapsed time: 2.39s)
+
+NEURAL NETWORK - Digit: Training with 10% of data
+Training Neural Network...
+Epoch: 0 | Loss: 1.88435
+Epoch: 5 | Loss: 1.09380
+Epoch: 10 | Loss: 0.79030
+Epoch: 15 | Loss: 0.36856
+Epoch: 20 | Loss: 0.63178
+Epoch: 25 | Loss: 0.28624
+Epoch: 30 | Loss: 0.09775
+Epoch: 35 | Loss: 0.11004
+Epoch: 40 | Loss: 0.07846
+Epoch: 45 | Loss: 0.19444
+Epoch: 50 | Loss: 0.17211
+Epoch: 55 | Loss: 0.08854
+Epoch: 60 | Loss: 0.03255
+Epoch: 65 | Loss: 0.04742
+Epoch: 70 | Loss: 0.08524
+Epoch: 75 | Loss: 0.04386
+Epoch: 80 | Loss: 0.07500
+Epoch: 85 | Loss: 0.02997
+Epoch: 90 | Loss: 0.07787
+Epoch: 95 | Loss: 0.02707
+NEURAL NETWORK: Training Completed (Elapsed training time: 4.81s)
+NEURAL NETWORK Validation Completed
+NEURAL NETWORK Validation Accuracy: 84.70% (Elapsed time: 5.61s)
+NEURAL NETWORK Testing Completed
+NEURAL NETWORK Testing Accuracy: 81.50% (Elapsed time: 5.61s)
+
+NAIVE BAYES - Digit: Training with 10% of data
+Training Naive Bayes Classifier...
+Starting training on 500 items...
+Processed 100/500 training images...
+Processed 200/500 training images...
+Processed 300/500 training images...
+Processed 400/500 training images...
+Processed 500/500 training images...
+Naive Bayes: Training Completed (Training time: 0.10s)
+Validating Naive Bayes Classifier...
+Validation Accuracy: 73.10% (Elapsed time: 4.17s)
+Testing Naive Bayes Classifier...
+Test Accuracy: 68.30% (Elapsed time: 8.23s)
+
+Testing with 20% of the training data for DIGIT DATASET:
+---------------------------------------------------------------
+
+PERCEPTRON - Digit: Training with 20% of data
+Training Perceptron...
+Epoch: 0 |  Loss: 0.92830
+Epoch: 5 |  Loss: 0.22264
+Epoch: 10 |  Loss: 0.13233
+Epoch: 15 |  Loss: 0.09022
+Epoch: 20 |  Loss: 0.06681
+Epoch: 25 |  Loss: 0.05237
+Epoch: 30 |  Loss: 0.04285
+Epoch: 35 |  Loss: 0.03623
+Epoch: 40 |  Loss: 0.03138
+Epoch: 45 |  Loss: 0.02768
+Epoch: 50 |  Loss: 0.02476
+Epoch: 55 |  Loss: 0.02241
+Epoch: 60 |  Loss: 0.02046
+Epoch: 65 |  Loss: 0.01883
+Epoch: 70 |  Loss: 0.01745
+Epoch: 75 |  Loss: 0.01625
+Epoch: 80 |  Loss: 0.01521
+Epoch: 85 |  Loss: 0.01430
+Epoch: 90 |  Loss: 0.01349
+Epoch: 95 |  Loss: 0.01277
+PERCEPTRON: Training Completed (Elapsed training time: 4.15s)
+PERCEPTRON: Validation Completed
+PERCEPTRON: Validation Accuracy: 84.80% (Elapsed time: 4.17s)
+PERCEPTRON: Testing Completed
+PERCEPTRON: Testing Accuracy: 81.40% (Elapsed time: 4.19s)
+
+NEURAL NETWORK - Digit: Training with 20% of data
+Training Neural Network...
+Epoch: 0 | Loss: 1.27365
+Epoch: 5 | Loss: 0.40407
+Epoch: 10 | Loss: 0.08945
+Epoch: 15 | Loss: 0.66897
+Epoch: 20 | Loss: 0.18839
+Epoch: 25 | Loss: 0.06867
+Epoch: 30 | Loss: 0.27963
+Epoch: 35 | Loss: 0.04081
+Epoch: 40 | Loss: 0.35231
+Epoch: 45 | Loss: 0.06235
+Epoch: 50 | Loss: 0.09009
+Epoch: 55 | Loss: 0.01899
+Epoch: 60 | Loss: 0.07599
+Epoch: 65 | Loss: 0.07315
+Epoch: 70 | Loss: 0.02702
+Epoch: 75 | Loss: 0.03405
+Epoch: 80 | Loss: 0.07293
+Epoch: 85 | Loss: 0.03550
+Epoch: 90 | Loss: 0.00942
+Epoch: 95 | Loss: 0.01363
+NEURAL NETWORK: Training Completed (Elapsed training time: 6.23s)
+NEURAL NETWORK Validation Completed
+NEURAL NETWORK Validation Accuracy: 88.50% (Elapsed time: 7.02s)
+NEURAL NETWORK Testing Completed
+NEURAL NETWORK Testing Accuracy: 85.40% (Elapsed time: 7.02s)
+
+NAIVE BAYES - Digit: Training with 20% of data
+Training Naive Bayes Classifier...
+Starting training on 1000 items...
+Processed 100/1000 training images...
+Processed 200/1000 training images...
+Processed 300/1000 training images...
+Processed 400/1000 training images...
+Processed 500/1000 training images...
+Processed 600/1000 training images...
+Processed 700/1000 training images...
+Processed 800/1000 training images...
+Processed 900/1000 training images...
+Processed 1000/1000 training images...
+Naive Bayes: Training Completed (Training time: 0.19s)
+Validating Naive Bayes Classifier...
+Validation Accuracy: 77.80% (Elapsed time: 4.31s)
+Testing Naive Bayes Classifier...
+Test Accuracy: 71.90% (Elapsed time: 8.78s)
+
+Testing with 30% of the training data for DIGIT DATASET:
+---------------------------------------------------------------
+
+PERCEPTRON - Digit: Training with 30% of data
+Training Perceptron...
+Epoch: 0 |  Loss: 0.83301
+Epoch: 5 |  Loss: 0.24154
+Epoch: 10 |  Loss: 0.15299
+Epoch: 15 |  Loss: 0.10805
+Epoch: 20 |  Loss: 0.08177
+Epoch: 25 |  Loss: 0.06489
+Epoch: 30 |  Loss: 0.05342
+Epoch: 35 |  Loss: 0.04528
+Epoch: 40 |  Loss: 0.03928
+Epoch: 45 |  Loss: 0.03469
+Epoch: 50 |  Loss: 0.03107
+Epoch: 55 |  Loss: 0.02815
+Epoch: 60 |  Loss: 0.02573
+Epoch: 65 |  Loss: 0.02370
+Epoch: 70 |  Loss: 0.02197
+Epoch: 75 |  Loss: 0.02048
+Epoch: 80 |  Loss: 0.01918
+Epoch: 85 |  Loss: 0.01803
+Epoch: 90 |  Loss: 0.01702
+Epoch: 95 |  Loss: 0.01611
+PERCEPTRON: Training Completed (Elapsed training time: 6.21s)
+PERCEPTRON: Validation Completed
+PERCEPTRON: Validation Accuracy: 83.90% (Elapsed time: 6.23s)
+PERCEPTRON: Testing Completed
+PERCEPTRON: Testing Accuracy: 81.10% (Elapsed time: 6.24s)
+
+NEURAL NETWORK - Digit: Training with 30% of data
+Training Neural Network...
+Epoch: 0 | Loss: 1.18787
+Epoch: 5 | Loss: 0.78824
+Epoch: 10 | Loss: 0.56989
+Epoch: 15 | Loss: 0.17190
+Epoch: 20 | Loss: 0.14468
+Epoch: 25 | Loss: 0.20768
+Epoch: 30 | Loss: 0.28389
+Epoch: 35 | Loss: 0.15202
+Epoch: 40 | Loss: 0.15799
+Epoch: 45 | Loss: 0.15364
+Epoch: 50 | Loss: 0.04336
+Epoch: 55 | Loss: 0.04172
+Epoch: 60 | Loss: 0.14022
+Epoch: 65 | Loss: 0.04491
+Epoch: 70 | Loss: 0.01766
+Epoch: 75 | Loss: 0.05698
+Epoch: 80 | Loss: 0.05171
+Epoch: 85 | Loss: 0.04030
+Epoch: 90 | Loss: 0.03108
+Epoch: 95 | Loss: 0.02345
+NEURAL NETWORK: Training Completed (Elapsed training time: 10.49s)
+NEURAL NETWORK Validation Completed
+NEURAL NETWORK Validation Accuracy: 88.80% (Elapsed time: 11.32s)
+NEURAL NETWORK Testing Completed
+NEURAL NETWORK Testing Accuracy: 86.60% (Elapsed time: 11.32s)
+
+NAIVE BAYES - Digit: Training with 30% of data
+Training Naive Bayes Classifier...
+Starting training on 1500 items...
+Processed 100/1500 training images...
+Processed 200/1500 training images...
+Processed 300/1500 training images...
+Processed 400/1500 training images...
+Processed 500/1500 training images...
+Processed 600/1500 training images...
+Processed 700/1500 training images...
+Processed 800/1500 training images...
+Processed 900/1500 training images...
+Processed 1000/1500 training images...
+Processed 1100/1500 training images...
+Processed 1200/1500 training images...
+Processed 1300/1500 training images...
+Processed 1400/1500 training images...
+Processed 1500/1500 training images...
+Naive Bayes: Training Completed (Training time: 0.31s)
+Validating Naive Bayes Classifier...
+Validation Accuracy: 79.40% (Elapsed time: 4.41s)
+Testing Naive Bayes Classifier...
+Test Accuracy: 73.10% (Elapsed time: 8.51s)
+
+Testing with 40% of the training data for DIGIT DATASET:
+---------------------------------------------------------------
+
+PERCEPTRON - Digit: Training with 40% of data
+Training Perceptron...
+Epoch: 0 |  Loss: 0.73187
+Epoch: 5 |  Loss: 0.22134
+Epoch: 10 |  Loss: 0.14539
+Epoch: 15 |  Loss: 0.10499
+Epoch: 20 |  Loss: 0.08018
+Epoch: 25 |  Loss: 0.06380
+Epoch: 30 |  Loss: 0.05253
+Epoch: 35 |  Loss: 0.04450
+Epoch: 40 |  Loss: 0.03857
+Epoch: 45 |  Loss: 0.03404
+Epoch: 50 |  Loss: 0.03046
+Epoch: 55 |  Loss: 0.02758
+Epoch: 60 |  Loss: 0.02520
+Epoch: 65 |  Loss: 0.02320
+Epoch: 70 |  Loss: 0.02150
+Epoch: 75 |  Loss: 0.02004
+Epoch: 80 |  Loss: 0.01876
+Epoch: 85 |  Loss: 0.01764
+Epoch: 90 |  Loss: 0.01665
+Epoch: 95 |  Loss: 0.01576
+PERCEPTRON: Training Completed (Elapsed training time: 9.14s)
+PERCEPTRON: Validation Completed
+PERCEPTRON: Validation Accuracy: 83.70% (Elapsed time: 9.16s)
+PERCEPTRON: Testing Completed
+PERCEPTRON: Testing Accuracy: 82.10% (Elapsed time: 9.18s)
+
+NEURAL NETWORK - Digit: Training with 40% of data
+Training Neural Network...
+Epoch: 0 | Loss: 1.22413
+Epoch: 5 | Loss: 0.44387
+Epoch: 10 | Loss: 0.20785
+Epoch: 15 | Loss: 0.11912
+Epoch: 20 | Loss: 0.09012
+Epoch: 25 | Loss: 0.09148
+Epoch: 30 | Loss: 0.09233
+Epoch: 35 | Loss: 0.14504
+Epoch: 40 | Loss: 0.10711
+Epoch: 45 | Loss: 0.13922
+Epoch: 50 | Loss: 0.04225
+Epoch: 55 | Loss: 0.13358
+Epoch: 60 | Loss: 0.03407
+Epoch: 65 | Loss: 0.05502
+Epoch: 70 | Loss: 0.10652
+Epoch: 75 | Loss: 0.04096
+Epoch: 80 | Loss: 0.02315
+Epoch: 85 | Loss: 0.01400
+Epoch: 90 | Loss: 0.00478
+Epoch: 95 | Loss: 0.04409
+NEURAL NETWORK: Training Completed (Elapsed training time: 15.09s)
+NEURAL NETWORK Validation Completed
+NEURAL NETWORK Validation Accuracy: 90.10% (Elapsed time: 15.90s)
+NEURAL NETWORK Testing Completed
+NEURAL NETWORK Testing Accuracy: 88.40% (Elapsed time: 15.90s)
+
+NAIVE BAYES - Digit: Training with 40% of data
+Training Naive Bayes Classifier...
+Starting training on 2000 items...
+Processed 100/2000 training images...
+Processed 200/2000 training images...
+Processed 300/2000 training images...
+Processed 400/2000 training images...
+Processed 500/2000 training images...
+Processed 600/2000 training images...
+Processed 700/2000 training images...
+Processed 800/2000 training images...
+Processed 900/2000 training images...
+Processed 1000/2000 training images...
+Processed 1100/2000 training images...
+Processed 1200/2000 training images...
+Processed 1300/2000 training images...
+Processed 1400/2000 training images...
+Processed 1500/2000 training images...
+Processed 1600/2000 training images...
+Processed 1700/2000 training images...
+Processed 1800/2000 training images...
+Processed 1900/2000 training images...
+Processed 2000/2000 training images...
+Naive Bayes: Training Completed (Training time: 0.42s)
+Validating Naive Bayes Classifier...
+Validation Accuracy: 79.30% (Elapsed time: 4.47s)
+Testing Naive Bayes Classifier...
+Test Accuracy: 73.80% (Elapsed time: 8.55s)
+
+Testing with 50% of the training data for DIGIT DATASET:
+---------------------------------------------------------------
+
+PERCEPTRON - Digit: Training with 50% of data
+Training Perceptron...
+Epoch: 0 |  Loss: 0.66020
+Epoch: 5 |  Loss: 0.20932
+Epoch: 10 |  Loss: 0.14093
+Epoch: 15 |  Loss: 0.10384
+Epoch: 20 |  Loss: 0.08061
+Epoch: 25 |  Loss: 0.06502
+Epoch: 30 |  Loss: 0.05402
+Epoch: 35 |  Loss: 0.04600
+Epoch: 40 |  Loss: 0.03999
+Epoch: 45 |  Loss: 0.03535
+Epoch: 50 |  Loss: 0.03167
+Epoch: 55 |  Loss: 0.02869
+Epoch: 60 |  Loss: 0.02623
+Epoch: 65 |  Loss: 0.02416
+Epoch: 70 |  Loss: 0.02239
+Epoch: 75 |  Loss: 0.02087
+Epoch: 80 |  Loss: 0.01954
+Epoch: 85 |  Loss: 0.01837
+Epoch: 90 |  Loss: 0.01734
+Epoch: 95 |  Loss: 0.01642
+PERCEPTRON: Training Completed (Elapsed training time: 13.77s)
+PERCEPTRON: Validation Completed
+PERCEPTRON: Validation Accuracy: 85.20% (Elapsed time: 13.79s)
+PERCEPTRON: Testing Completed
+PERCEPTRON: Testing Accuracy: 83.80% (Elapsed time: 13.81s)
+
+NEURAL NETWORK - Digit: Training with 50% of data
+Training Neural Network...
+Epoch: 0 | Loss: 0.92330
+Epoch: 5 | Loss: 0.58110
+Epoch: 10 | Loss: 0.10988
+Epoch: 15 | Loss: 0.37250
+Epoch: 20 | Loss: 0.01264
+Epoch: 25 | Loss: 0.03287
+Epoch: 30 | Loss: 0.12075
+Epoch: 35 | Loss: 0.01273
+Epoch: 40 | Loss: 0.13951
+Epoch: 45 | Loss: 0.00681
+Epoch: 50 | Loss: 0.00757
+Epoch: 55 | Loss: 0.00559
+Epoch: 60 | Loss: 0.01180
+Epoch: 65 | Loss: 0.05979
+Epoch: 70 | Loss: 0.00415
+Epoch: 75 | Loss: 0.00735
+Epoch: 80 | Loss: 0.04907
+Epoch: 85 | Loss: 0.01024
+Epoch: 90 | Loss: 0.01966
+Epoch: 95 | Loss: 0.00924
+NEURAL NETWORK: Training Completed (Elapsed training time: 16.82s)
+NEURAL NETWORK Validation Completed
+NEURAL NETWORK Validation Accuracy: 91.50% (Elapsed time: 17.62s)
+NEURAL NETWORK Testing Completed
+NEURAL NETWORK Testing Accuracy: 88.10% (Elapsed time: 17.62s)
+
+NAIVE BAYES - Digit: Training with 50% of data
+Training Naive Bayes Classifier...
+Starting training on 2500 items...
+Processed 100/2500 training images...
+Processed 200/2500 training images...
+Processed 300/2500 training images...
+Processed 400/2500 training images...
+Processed 500/2500 training images...
+Processed 600/2500 training images...
+Processed 700/2500 training images...
+Processed 800/2500 training images...
+Processed 900/2500 training images...
+Processed 1000/2500 training images...
+Processed 1100/2500 training images...
+Processed 1200/2500 training images...
+Processed 1300/2500 training images...
+Processed 1400/2500 training images...
+Processed 1500/2500 training images...
+Processed 1600/2500 training images...
+Processed 1700/2500 training images...
+Processed 1800/2500 training images...
+Processed 1900/2500 training images...
+Processed 2000/2500 training images...
+Processed 2100/2500 training images...
+Processed 2200/2500 training images...
+Processed 2300/2500 training images...
+Processed 2400/2500 training images...
+Processed 2500/2500 training images...
+Naive Bayes: Training Completed (Training time: 0.56s)
+Validating Naive Bayes Classifier...
+Validation Accuracy: 80.30% (Elapsed time: 4.64s)
+Testing Naive Bayes Classifier...
+Test Accuracy: 75.60% (Elapsed time: 8.76s)
+
+Testing with 60% of the training data for DIGIT DATASET:
+---------------------------------------------------------------
+
+PERCEPTRON - Digit: Training with 60% of data
+Training Perceptron...
+Epoch: 0 |  Loss: 0.61283
+Epoch: 5 |  Loss: 0.20372
+Epoch: 10 |  Loss: 0.14076
+Epoch: 15 |  Loss: 0.10603
+Epoch: 20 |  Loss: 0.08379
+Epoch: 25 |  Loss: 0.06845
+Epoch: 30 |  Loss: 0.05741
+Epoch: 35 |  Loss: 0.04919
+Epoch: 40 |  Loss: 0.04293
+Epoch: 45 |  Loss: 0.03805
+Epoch: 50 |  Loss: 0.03414
+Epoch: 55 |  Loss: 0.03097
+Epoch: 60 |  Loss: 0.02833
+Epoch: 65 |  Loss: 0.02610
+Epoch: 70 |  Loss: 0.02420
+Epoch: 75 |  Loss: 0.02255
+Epoch: 80 |  Loss: 0.02112
+Epoch: 85 |  Loss: 0.01985
+Epoch: 90 |  Loss: 0.01873
+Epoch: 95 |  Loss: 0.01772
+PERCEPTRON: Training Completed (Elapsed training time: 18.65s)
+PERCEPTRON: Validation Completed
+PERCEPTRON: Validation Accuracy: 85.70% (Elapsed time: 18.67s)
+PERCEPTRON: Testing Completed
+PERCEPTRON: Testing Accuracy: 84.50% (Elapsed time: 18.69s)
+
+NEURAL NETWORK - Digit: Training with 60% of data
+Training Neural Network...
+Epoch: 0 | Loss: 1.00492
+Epoch: 5 | Loss: 0.34410
+Epoch: 10 | Loss: 0.12619
+Epoch: 15 | Loss: 0.16410
+Epoch: 20 | Loss: 0.07638
+Epoch: 25 | Loss: 0.05679
+Epoch: 30 | Loss: 0.11024
+Epoch: 35 | Loss: 0.03692
+Epoch: 40 | Loss: 0.06628
+Epoch: 45 | Loss: 0.03730
+Epoch: 50 | Loss: 0.05806
+Epoch: 55 | Loss: 0.06485
+Epoch: 60 | Loss: 0.03165
+Epoch: 65 | Loss: 0.03639
+Epoch: 70 | Loss: 0.02891
+Epoch: 75 | Loss: 0.00796
+Epoch: 80 | Loss: 0.00799
+Epoch: 85 | Loss: 0.02067
+Epoch: 90 | Loss: 0.02052
+Epoch: 95 | Loss: 0.01593
+NEURAL NETWORK: Training Completed (Elapsed training time: 22.64s)
+NEURAL NETWORK Validation Completed
+NEURAL NETWORK Validation Accuracy: 92.40% (Elapsed time: 23.45s)
+NEURAL NETWORK Testing Completed
+NEURAL NETWORK Testing Accuracy: 88.80% (Elapsed time: 23.45s)
+
+NAIVE BAYES - Digit: Training with 60% of data
+Training Naive Bayes Classifier...
+Starting training on 3000 items...
+Processed 100/3000 training images...
+Processed 200/3000 training images...
+Processed 300/3000 training images...
+Processed 400/3000 training images...
+Processed 500/3000 training images...
+Processed 600/3000 training images...
+Processed 700/3000 training images...
+Processed 800/3000 training images...
+Processed 900/3000 training images...
+Processed 1000/3000 training images...
+Processed 1100/3000 training images...
+Processed 1200/3000 training images...
+Processed 1300/3000 training images...
+Processed 1400/3000 training images...
+Processed 1500/3000 training images...
+Processed 1600/3000 training images...
+Processed 1700/3000 training images...
+Processed 1800/3000 training images...
+Processed 1900/3000 training images...
+Processed 2000/3000 training images...
+Processed 2100/3000 training images...
+Processed 2200/3000 training images...
+Processed 2300/3000 training images...
+Processed 2400/3000 training images...
+Processed 2500/3000 training images...
+Processed 2600/3000 training images...
+Processed 2700/3000 training images...
+Processed 2800/3000 training images...
+Processed 2900/3000 training images...
+Processed 3000/3000 training images...
+Naive Bayes: Training Completed (Training time: 0.62s)
+Validating Naive Bayes Classifier...
+Validation Accuracy: 80.10% (Elapsed time: 4.80s)
+Testing Naive Bayes Classifier...
+Test Accuracy: 75.80% (Elapsed time: 9.04s)
+
+Testing with 70% of the training data for DIGIT DATASET:
+---------------------------------------------------------------
+
+PERCEPTRON - Digit: Training with 70% of data
+Training Perceptron...
+Epoch: 0 |  Loss: 0.57874
+Epoch: 5 |  Loss: 0.20204
+Epoch: 10 |  Loss: 0.14481
+Epoch: 15 |  Loss: 0.11275
+Epoch: 20 |  Loss: 0.09151
+Epoch: 25 |  Loss: 0.07632
+Epoch: 30 |  Loss: 0.06498
+Epoch: 35 |  Loss: 0.05626
+Epoch: 40 |  Loss: 0.04941
+Epoch: 45 |  Loss: 0.04396
+Epoch: 50 |  Loss: 0.03954
+Epoch: 55 |  Loss: 0.03592
+Epoch: 60 |  Loss: 0.03289
+Epoch: 65 |  Loss: 0.03032
+Epoch: 70 |  Loss: 0.02813
+Epoch: 75 |  Loss: 0.02623
+Epoch: 80 |  Loss: 0.02457
+Epoch: 85 |  Loss: 0.02311
+Epoch: 90 |  Loss: 0.02181
+Epoch: 95 |  Loss: 0.02065
+PERCEPTRON: Training Completed (Elapsed training time: 16.01s)
+PERCEPTRON: Validation Completed
+PERCEPTRON: Validation Accuracy: 85.60% (Elapsed time: 16.03s)
+PERCEPTRON: Testing Completed
+PERCEPTRON: Testing Accuracy: 84.90% (Elapsed time: 16.05s)
+
+NEURAL NETWORK - Digit: Training with 70% of data
+Training Neural Network...
+Epoch: 0 | Loss: 1.32520
+Epoch: 5 | Loss: 0.48094
+Epoch: 10 | Loss: 0.06713
+Epoch: 15 | Loss: 0.07534
+Epoch: 20 | Loss: 0.03150
+Epoch: 25 | Loss: 0.14466
+Epoch: 30 | Loss: 0.03432
+Epoch: 35 | Loss: 0.10835
+Epoch: 40 | Loss: 0.15136
+Epoch: 45 | Loss: 0.08401
+Epoch: 50 | Loss: 0.01226
+Epoch: 55 | Loss: 0.00712
+Epoch: 60 | Loss: 0.01453
+Epoch: 65 | Loss: 0.07083
+Epoch: 70 | Loss: 0.01877
+Epoch: 75 | Loss: 0.02101
+Epoch: 80 | Loss: 0.02934
+Epoch: 85 | Loss: 0.02533
+Epoch: 90 | Loss: 0.01541
+Epoch: 95 | Loss: 0.00961
+NEURAL NETWORK: Training Completed (Elapsed training time: 57.88s)
+NEURAL NETWORK Validation Completed
+NEURAL NETWORK Validation Accuracy: 92.80% (Elapsed time: 58.85s)
+NEURAL NETWORK Testing Completed
+NEURAL NETWORK Testing Accuracy: 90.50% (Elapsed time: 58.85s)
+
+NAIVE BAYES - Digit: Training with 70% of data
+Training Naive Bayes Classifier...
+Starting training on 3500 items...
+Processed 100/3500 training images...
+Processed 200/3500 training images...
+Processed 300/3500 training images...
+Processed 400/3500 training images...
+Processed 500/3500 training images...
+Processed 600/3500 training images...
+Processed 700/3500 training images...
+Processed 800/3500 training images...
+Processed 900/3500 training images...
+Processed 1000/3500 training images...
+Processed 1100/3500 training images...
+Processed 1200/3500 training images...
+Processed 1300/3500 training images...
+Processed 1400/3500 training images...
+Processed 1500/3500 training images...
+Processed 1600/3500 training images...
+Processed 1700/3500 training images...
+Processed 1800/3500 training images...
+Processed 1900/3500 training images...
+Processed 2000/3500 training images...
+Processed 2100/3500 training images...
+Processed 2200/3500 training images...
+Processed 2300/3500 training images...
+Processed 2400/3500 training images...
+Processed 2500/3500 training images...
+Processed 2600/3500 training images...
+Processed 2700/3500 training images...
+Processed 2800/3500 training images...
+Processed 2900/3500 training images...
+Processed 3000/3500 training images...
+Processed 3100/3500 training images...
+Processed 3200/3500 training images...
+Processed 3300/3500 training images...
+Processed 3400/3500 training images...
+Processed 3500/3500 training images...
+Naive Bayes: Training Completed (Training time: 1.06s)
+Validating Naive Bayes Classifier...
+Validation Accuracy: 80.80% (Elapsed time: 5.35s)
+Testing Naive Bayes Classifier...
+Test Accuracy: 76.20% (Elapsed time: 9.67s)
+
+Testing with 80% of the training data for DIGIT DATASET:
+---------------------------------------------------------------
+
+PERCEPTRON - Digit: Training with 80% of data
+Training Perceptron...
+Epoch: 0 |  Loss: 0.55141
+Epoch: 5 |  Loss: 0.19900
+Epoch: 10 |  Loss: 0.14508
+Epoch: 15 |  Loss: 0.11416
+Epoch: 20 |  Loss: 0.09326
+Epoch: 25 |  Loss: 0.07823
+Epoch: 30 |  Loss: 0.06700
+Epoch: 35 |  Loss: 0.05835
+Epoch: 40 |  Loss: 0.05152
+Epoch: 45 |  Loss: 0.04602
+Epoch: 50 |  Loss: 0.04154
+Epoch: 55 |  Loss: 0.03783
+Epoch: 60 |  Loss: 0.03472
+Epoch: 65 |  Loss: 0.03208
+Epoch: 70 |  Loss: 0.02980
+Epoch: 75 |  Loss: 0.02783
+Epoch: 80 |  Loss: 0.02610
+Epoch: 85 |  Loss: 0.02458
+Epoch: 90 |  Loss: 0.02322
+Epoch: 95 |  Loss: 0.02201
+PERCEPTRON: Training Completed (Elapsed training time: 25.84s)
+PERCEPTRON: Validation Completed
+PERCEPTRON: Validation Accuracy: 86.80% (Elapsed time: 25.86s)
+PERCEPTRON: Testing Completed
+PERCEPTRON: Testing Accuracy: 84.20% (Elapsed time: 25.88s)
+
+NEURAL NETWORK - Digit: Training with 80% of data
+Training Neural Network...
+Epoch: 0 | Loss: 0.82761
+Epoch: 5 | Loss: 0.22263
+Epoch: 10 | Loss: 0.17670
+Epoch: 15 | Loss: 0.10101
+Epoch: 20 | Loss: 0.10690
+Epoch: 25 | Loss: 0.09887
+Epoch: 30 | Loss: 0.20183
+Epoch: 35 | Loss: 0.09642
+Epoch: 40 | Loss: 0.04966
+Epoch: 45 | Loss: 0.02611
+Epoch: 50 | Loss: 0.02775
+Epoch: 55 | Loss: 0.02746
+Epoch: 60 | Loss: 0.05398
+Epoch: 65 | Loss: 0.01329
+Epoch: 70 | Loss: 0.01661
+Epoch: 75 | Loss: 0.01162
+Epoch: 80 | Loss: 0.01441
+Epoch: 85 | Loss: 0.01686
+Epoch: 90 | Loss: 0.01870
+Epoch: 95 | Loss: 0.01706
+NEURAL NETWORK: Training Completed (Elapsed training time: 45.04s)
+NEURAL NETWORK Validation Completed
+NEURAL NETWORK Validation Accuracy: 92.40% (Elapsed time: 45.91s)
+NEURAL NETWORK Testing Completed
+NEURAL NETWORK Testing Accuracy: 90.30% (Elapsed time: 45.91s)
+
+NAIVE BAYES - Digit: Training with 80% of data
+Training Naive Bayes Classifier...
+Starting training on 4000 items...
+Processed 100/4000 training images...
+Processed 200/4000 training images...
+Processed 300/4000 training images...
+Processed 400/4000 training images...
+Processed 500/4000 training images...
+Processed 600/4000 training images...
+Processed 700/4000 training images...
+Processed 800/4000 training images...
+Processed 900/4000 training images...
+Processed 1000/4000 training images...
+Processed 1100/4000 training images...
+Processed 1200/4000 training images...
+Processed 1300/4000 training images...
+Processed 1400/4000 training images...
+Processed 1500/4000 training images...
+Processed 1600/4000 training images...
+Processed 1700/4000 training images...
+Processed 1800/4000 training images...
+Processed 1900/4000 training images...
+Processed 2000/4000 training images...
+Processed 2100/4000 training images...
+Processed 2200/4000 training images...
+Processed 2300/4000 training images...
+Processed 2400/4000 training images...
+Processed 2500/4000 training images...
+Processed 2600/4000 training images...
+Processed 2700/4000 training images...
+Processed 2800/4000 training images...
+Processed 2900/4000 training images...
+Processed 3000/4000 training images...
+Processed 3100/4000 training images...
+Processed 3200/4000 training images...
+Processed 3300/4000 training images...
+Processed 3400/4000 training images...
+Processed 3500/4000 training images...
+Processed 3600/4000 training images...
+Processed 3700/4000 training images...
+Processed 3800/4000 training images...
+Processed 3900/4000 training images...
+Processed 4000/4000 training images...
+Naive Bayes: Training Completed (Training time: 0.84s)
+Validating Naive Bayes Classifier...
+Validation Accuracy: 80.90% (Elapsed time: 5.24s)
+Testing Naive Bayes Classifier...
+Test Accuracy: 76.60% (Elapsed time: 9.46s)
+
+Testing with 90% of the training data for DIGIT DATASET:
+---------------------------------------------------------------
+
+PERCEPTRON - Digit: Training with 90% of data
+Training Perceptron...
+Epoch: 0 |  Loss: 0.54038
+Epoch: 5 |  Loss: 0.21060
+Epoch: 10 |  Loss: 0.15766
+Epoch: 15 |  Loss: 0.12735
+Epoch: 20 |  Loss: 0.10662
+Epoch: 25 |  Loss: 0.09128
+Epoch: 30 |  Loss: 0.07948
+Epoch: 35 |  Loss: 0.07014
+Epoch: 40 |  Loss: 0.06259
+Epoch: 45 |  Loss: 0.05638
+Epoch: 50 |  Loss: 0.05122
+Epoch: 55 |  Loss: 0.04687
+Epoch: 60 |  Loss: 0.04317
+Epoch: 65 |  Loss: 0.03998
+Epoch: 70 |  Loss: 0.03721
+Epoch: 75 |  Loss: 0.03477
+Epoch: 80 |  Loss: 0.03262
+Epoch: 85 |  Loss: 0.03070
+Epoch: 90 |  Loss: 0.02898
+Epoch: 95 |  Loss: 0.02743
+PERCEPTRON: Training Completed (Elapsed training time: 25.83s)
+PERCEPTRON: Validation Completed
+PERCEPTRON: Validation Accuracy: 86.70% (Elapsed time: 25.86s)
+PERCEPTRON: Testing Completed
+PERCEPTRON: Testing Accuracy: 85.00% (Elapsed time: 25.88s)
+
+NEURAL NETWORK - Digit: Training with 90% of data
+Training Neural Network...
+Epoch: 0 | Loss: 0.81649
+Epoch: 5 | Loss: 0.43039
+Epoch: 10 | Loss: 0.23100
+Epoch: 15 | Loss: 0.05528
+Epoch: 20 | Loss: 0.03181
+Epoch: 25 | Loss: 0.06098
+Epoch: 30 | Loss: 0.11785
+Epoch: 35 | Loss: 0.02236
+Epoch: 40 | Loss: 0.09293
+Epoch: 45 | Loss: 0.02917
+Epoch: 50 | Loss: 0.01194
+Epoch: 55 | Loss: 0.00776
+Epoch: 60 | Loss: 0.05208
+Epoch: 65 | Loss: 0.02084
+Epoch: 70 | Loss: 0.00987
+Epoch: 75 | Loss: 0.01473
+Epoch: 80 | Loss: 0.02747
+Epoch: 85 | Loss: 0.01733
+Epoch: 90 | Loss: 0.00865
+Epoch: 95 | Loss: 0.00907
+NEURAL NETWORK: Training Completed (Elapsed training time: 30.81s)
+NEURAL NETWORK Validation Completed
+NEURAL NETWORK Validation Accuracy: 93.10% (Elapsed time: 31.61s)
+NEURAL NETWORK Testing Completed
+NEURAL NETWORK Testing Accuracy: 91.40% (Elapsed time: 31.61s)
+
+NAIVE BAYES - Digit: Training with 90% of data
+Training Naive Bayes Classifier...
+Starting training on 4500 items...
+Processed 100/4500 training images...
+Processed 200/4500 training images...
+Processed 300/4500 training images...
+Processed 400/4500 training images...
+Processed 500/4500 training images...
+Processed 600/4500 training images...
+Processed 700/4500 training images...
+Processed 800/4500 training images...
+Processed 900/4500 training images...
+Processed 1000/4500 training images...
+Processed 1100/4500 training images...
+Processed 1200/4500 training images...
+Processed 1300/4500 training images...
+Processed 1400/4500 training images...
+Processed 1500/4500 training images...
+Processed 1600/4500 training images...
+Processed 1700/4500 training images...
+Processed 1800/4500 training images...
+Processed 1900/4500 training images...
+Processed 2000/4500 training images...
+Processed 2100/4500 training images...
+Processed 2200/4500 training images...
+Processed 2300/4500 training images...
+Processed 2400/4500 training images...
+Processed 2500/4500 training images...
+Processed 2600/4500 training images...
+Processed 2700/4500 training images...
+Processed 2800/4500 training images...
+Processed 2900/4500 training images...
+Processed 3000/4500 training images...
+Processed 3100/4500 training images...
+Processed 3200/4500 training images...
+Processed 3300/4500 training images...
+Processed 3400/4500 training images...
+Processed 3500/4500 training images...
+Processed 3600/4500 training images...
+Processed 3700/4500 training images...
+Processed 3800/4500 training images...
+Processed 3900/4500 training images...
+Processed 4000/4500 training images...
+Processed 4100/4500 training images...
+Processed 4200/4500 training images...
+Processed 4300/4500 training images...
+Processed 4400/4500 training images...
+Processed 4500/4500 training images...
+Naive Bayes: Training Completed (Training time: 0.89s)
+Validating Naive Bayes Classifier...
+Validation Accuracy: 82.00% (Elapsed time: 5.07s)
+Testing Naive Bayes Classifier...
+Test Accuracy: 76.30% (Elapsed time: 9.24s)
+
+Testing with 100% of the training data for DIGIT DATASET:
+---------------------------------------------------------------
+
+PERCEPTRON - Digit: Training with 100% of data
+Training Perceptron...
+Epoch: 0 |  Loss: 0.52236
+Epoch: 5 |  Loss: 0.20943
+Epoch: 10 |  Loss: 0.15924
+Epoch: 15 |  Loss: 0.13037
+Epoch: 20 |  Loss: 0.11045
+Epoch: 25 |  Loss: 0.09559
+Epoch: 30 |  Loss: 0.08400
+Epoch: 35 |  Loss: 0.07469
+Epoch: 40 |  Loss: 0.06704
+Epoch: 45 |  Loss: 0.06067
+Epoch: 50 |  Loss: 0.05529
+Epoch: 55 |  Loss: 0.05073
+Epoch: 60 |  Loss: 0.04681
+Epoch: 65 |  Loss: 0.04343
+Epoch: 70 |  Loss: 0.04047
+Epoch: 75 |  Loss: 0.03788
+Epoch: 80 |  Loss: 0.03558
+Epoch: 85 |  Loss: 0.03353
+Epoch: 90 |  Loss: 0.03169
+Epoch: 95 |  Loss: 0.03003
+PERCEPTRON: Training Completed (Elapsed training time: 22.61s)
+PERCEPTRON: Validation Completed
+PERCEPTRON: Validation Accuracy: 87.00% (Elapsed time: 22.64s)
+PERCEPTRON: Testing Completed
+PERCEPTRON: Testing Accuracy: 84.30% (Elapsed time: 22.66s)
+
+NEURAL NETWORK - Digit: Training with 100% of data
+Training Neural Network...
+Epoch: 0 | Loss: 0.47368
+Epoch: 5 | Loss: 0.43570
+Epoch: 10 | Loss: 0.20254
+Epoch: 15 | Loss: 0.28016
+Epoch: 20 | Loss: 0.04586
+Epoch: 25 | Loss: 0.04561
+Epoch: 30 | Loss: 0.00344
+Epoch: 35 | Loss: 0.12304
+Epoch: 40 | Loss: 0.07495
+Epoch: 45 | Loss: 0.02163
+Epoch: 50 | Loss: 0.09320
+Epoch: 55 | Loss: 0.00342
+Epoch: 60 | Loss: 0.00412
+Epoch: 65 | Loss: 0.02866
+Epoch: 70 | Loss: 0.00710
+Epoch: 75 | Loss: 0.00690
+Epoch: 80 | Loss: 0.07507
+Epoch: 85 | Loss: 0.01225
+Epoch: 90 | Loss: 0.00021
+Epoch: 95 | Loss: 0.01825
+NEURAL NETWORK: Training Completed (Elapsed training time: 32.25s)
+NEURAL NETWORK Validation Completed
+NEURAL NETWORK Validation Accuracy: 93.70% (Elapsed time: 33.05s)
+NEURAL NETWORK Testing Completed
+NEURAL NETWORK Testing Accuracy: 91.00% (Elapsed time: 33.05s)
+
+NAIVE BAYES - Digit: Training with 100% of data
+Training Naive Bayes Classifier...
+Starting training on 5000 items...
+Processed 100/5000 training images...
+Processed 200/5000 training images...
+Processed 300/5000 training images...
+Processed 400/5000 training images...
+Processed 500/5000 training images...
+Processed 600/5000 training images...
+Processed 700/5000 training images...
+Processed 800/5000 training images...
+Processed 900/5000 training images...
+Processed 1000/5000 training images...
+Processed 1100/5000 training images...
+Processed 1200/5000 training images...
+Processed 1300/5000 training images...
+Processed 1400/5000 training images...
+Processed 1500/5000 training images...
+Processed 1600/5000 training images...
+Processed 1700/5000 training images...
+Processed 1800/5000 training images...
+Processed 1900/5000 training images...
+Processed 2000/5000 training images...
+Processed 2100/5000 training images...
+Processed 2200/5000 training images...
+Processed 2300/5000 training images...
+Processed 2400/5000 training images...
+Processed 2500/5000 training images...
+Processed 2600/5000 training images...
+Processed 2700/5000 training images...
+Processed 2800/5000 training images...
+Processed 2900/5000 training images...
+Processed 3000/5000 training images...
+Processed 3100/5000 training images...
+Processed 3200/5000 training images...
+Processed 3300/5000 training images...
+Processed 3400/5000 training images...
+Processed 3500/5000 training images...
+Processed 3600/5000 training images...
+Processed 3700/5000 training images...
+Processed 3800/5000 training images...
+Processed 3900/5000 training images...
+Processed 4000/5000 training images...
+Processed 4100/5000 training images...
+Processed 4200/5000 training images...
+Processed 4300/5000 training images...
+Processed 4400/5000 training images...
+Processed 4500/5000 training images...
+Processed 4600/5000 training images...
+Processed 4700/5000 training images...
+Processed 4800/5000 training images...
+Processed 4900/5000 training images...
+Processed 5000/5000 training images...
+Naive Bayes: Training Completed (Training time: 1.01s)
+Validating Naive Bayes Classifier...
+Validation Accuracy: 81.80% (Elapsed time: 5.23s)
+Testing Naive Bayes Classifier...
+Test Accuracy: 77.10% (Elapsed time: 9.68s)
