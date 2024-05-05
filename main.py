@@ -30,7 +30,8 @@ def load_and_prepare_data(image_path, label_path, image_size):
     return np.array(flat_images, dtype=np.float32), np.array(labels, dtype=np.float32)
 
 def train_and_evaluate_perceptron():
-    
+    print("\nPERCEPTRON - Faces")
+    print("---------------------")
     print("PERCEPTRON: Preparing data...")
     training_inputs, labels = load_and_prepare_data(
         face_paths['train_images'], face_paths['train_labels'], config.config.get('FACE_IMAGE_SIZE'))
@@ -53,7 +54,8 @@ def train_and_evaluate_perceptron():
     print(f"PERCEPTRON: Final Accuracy on Test Set: {test_accuracy:.2f}% ")
 
 def train_and_evaluate_neural_network():
-    
+    print("\nNEURAL NETWORK - Faces")
+    print("-----------------------")
     print("NEURAL NETWORK: Preparing data...")
     # load data to train neural network 
     training_images, training_labels = load_data_and_labels(
@@ -149,18 +151,64 @@ def train_and_evaluate_naive_bayes():
     elapsed_time = time.time() - start_time
     print(f"Test Accuracy: {test_accuracy * 100:.2f}% (Elapsed time: {elapsed_time:.2f}s)")
 
-def main():
-    print("\nFACES\n------")
-    print("\nNEURAL NETWORK - Faces")
-    print("-----------------------")
-    train_and_evaluate_neural_network()
-    print("\nPERCEPTRON - Faces")
-    print("---------------------")
-    train_and_evaluate_perceptron()
-    train_and_evaluate_naive_bayes()
+def train_and_evaluate_digit_perceptron():
+    test_images_path = "data/digitdata/testimages"
+    test_labels_path = "data/digitdata/testlabels"
+    training_images_path = "data/digitdata/trainingimages"
+    training_labels_path = "data/digitdata/traininglabels"
+    validation_images_path = "data/digitdata/validationimages"
+    validation_labels_path = "data/digitdata/validationlabels"
 
-    print("\nDIGITS\n----------")
-    # file paths
+    training_data = np.array(load_images_from_file(training_images_path))
+    training_labels = np.array(create_one_hot_labels_from_file(training_labels_path))
+    training_data = transform_to_binary_values(training_data)
+    training_data = np.reshape(training_data, (5000, 560)) 
+
+    validation_data = np.array(load_images_from_file(validation_images_path))
+    validation_labels = np.array(load_integer_labels_from_file(validation_labels_path))
+    validation_data = transform_to_binary_values(validation_data)
+    validation_data = np.reshape(validation_data, (1000, 560))
+
+    testing_data = np.array(load_images_from_file(test_images_path))
+    testing_labels = np.array(load_integer_labels_from_file(test_labels_path))
+    testing_data = transform_to_binary_values(testing_data)
+    testing_data = np.reshape(testing_data, (1000, 560))
+
+    print("\nPERCEPTRON - Digit")
+    print("---------------------")
+
+    # reuse training data for perceptron
+    training_data_perceptron = transform_to_binary_values(np.array(load_images_from_file(training_images_path)))
+
+    # perceptron training 
+    beginning_time = time.time()
+    print("Training Perceptron...")
+    perceptron_weights, perceptron_biases = digit_perceptron.train_perceptron(training_data_perceptron, training_labels, 100, 0.01)
+    training_time = time.time() - beginning_time
+    print(f"\nPERCEPTRON: Training Completed (Elapsed training time: {training_time:.2f}s)")
+
+    # load validation data for perceptron
+    validation_data_perceptron = transform_to_binary_values(np.array(load_images_from_file(validation_images_path)))
+    validation_data_perceptron = np.reshape(validation_data_perceptron, (len(validation_data_perceptron), 560))
+
+    # validate perceptron
+    
+    perceptron_accuracy = digit_perceptron.predict(validation_data_perceptron, validation_labels, perceptron_weights, perceptron_biases)
+    elapsed_time = time.time() - beginning_time
+    print("PERCEPTRON: Validation Completed")
+    print(f"PERCEPTRON: Validation Accuracy: {perceptron_accuracy:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
+
+    # load testing data for perceptron
+    test_data_perceptron = transform_to_binary_values(np.array(load_images_from_file(test_images_path)))
+    test_data_perceptron = np.reshape(test_data_perceptron, (len(test_data_perceptron), 560))
+
+    # test the perceptron
+    perceptron_accuracy = digit_perceptron.predict(test_data_perceptron, testing_labels, perceptron_weights, perceptron_biases)
+    elapsed_time = time.time() - beginning_time
+    print("PERCEPTRON: Testing Completed")
+    print(f"PERCEPTRON: Testing Accuracy: {perceptron_accuracy:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n") 
+
+def train_and_evaluate_digit_neural_network():
     test_images_path = "data/digitdata/testimages"
     test_labels_path = "data/digitdata/testlabels"
     training_images_path = "data/digitdata/trainingimages"
@@ -208,49 +256,10 @@ def main():
     nn_accuracy = np.mean(np.argmax(nn_predicted_labels, axis=1) == testing_labels)
     elapsed_time = time.time() - beginning_time
     print("NEURAL NETWORK Testing Completed")
-    print(f"NEURAL NETWORK Testing Accuracy: {100*nn_accuracy:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
+    print(f"NEURAL NETWORK Testing Accuracy: {100*nn_accuracy:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n") 
 
-    
-    print("\nPERCEPTRON - Digit")
-    print("---------------------")
-
-    # reuse training data for perceptron
-    training_data_perceptron = transform_to_binary_values(np.array(load_images_from_file(training_images_path)))
-
-    # perceptron training 
-    beginning_time = time.time()
-    print("Training Perceptron...")
-    perceptron_weights, perceptron_biases = digit_perceptron.train_perceptron(training_data_perceptron, training_labels, 100, 0.01)
-    training_time = time.time() - beginning_time
-    print(f"\nPERCEPTRON: Training Completed (Elapsed training time: {training_time:.2f}s)")
-
-    # load validation data for perceptron
-    validation_data_perceptron = transform_to_binary_values(np.array(load_images_from_file(validation_images_path)))
-    validation_data_perceptron = np.reshape(validation_data_perceptron, (len(validation_data_perceptron), 560))
-
-    # validate perceptron
-    
-    perceptron_accuracy = digit_perceptron.predict(validation_data_perceptron, validation_labels, perceptron_weights, perceptron_biases)
-    elapsed_time = time.time() - beginning_time
-    print("PERCEPTRON: Validation Completed")
-    print(f"PERCEPTRON: Validation Accuracy: {perceptron_accuracy:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
-
-    # load testing data for perceptron
-    test_data_perceptron = transform_to_binary_values(np.array(load_images_from_file(test_images_path)))
-    test_data_perceptron = np.reshape(test_data_perceptron, (len(test_data_perceptron), 560))
-
-    # test the perceptron
-    perceptron_accuracy = digit_perceptron.predict(test_data_perceptron, testing_labels, perceptron_weights, perceptron_biases)
-    elapsed_time = time.time() - beginning_time
-    print("PERCEPTRON: Testing Completed")
-    print(f"PERCEPTRON: Testing Accuracy: {perceptron_accuracy:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
-
-
-
-
-
-
-    # NAIVE BAYES ALGORITHM!!!!!
+def train_and_evaluate_digit_naive_bayes():
+  # NAIVE BAYES ALGORITHM!!!!!
     print("\nNAIVE BAYES - Digit")
     print("---------------------")
 
@@ -296,8 +305,19 @@ def main():
     test_predictions = nb_classifier.classify(test_data)
     test_accuracy = sum(int(pred == true) for pred, true in zip(test_predictions, test_labels)) / len(test_labels)
     elapsed_time = time.time() - first_time
-    print(f"Test Accuracy: {test_accuracy * 100:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n")
-  
+    print(f"Test Accuracy: {test_accuracy * 100:.2f}% (Elapsed time: {elapsed_time:.2f}s)\n") 
+
+
+def main():
+    print("\nFACES\n------")
+    train_and_evaluate_neural_network()
+    train_and_evaluate_perceptron()
+    train_and_evaluate_naive_bayes()
+    print("\nDIGITS\n----------")
+    train_and_evaluate_digit_neural_network()
+    train_and_evaluate_digit_perceptron()
+    train_and_evaluate_digit_naive_bayes()
+    
 
 if __name__ == "__main__":
     main()
