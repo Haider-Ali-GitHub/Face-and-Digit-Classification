@@ -10,8 +10,6 @@ from digit_NaiveBayes import NaiveBayesClassifier
 from faces_NaiveBayes import NaiveBayesClassifier
 
 
-# THIS FILE IS A LITTLE WEIRD. All face-data relating things are located below in functions and variables.
-# ALL DIGIT RELATED THINGS ARE DIRECTLY IN THE MAIN FUNCTION BELOW
 
 # file paths
 face_paths = {
