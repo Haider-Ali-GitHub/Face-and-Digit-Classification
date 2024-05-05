@@ -72,7 +72,7 @@ def train_and_evaluate_neural_network():
     validation_labels = np.array(validation_labels, dtype=int)
     test_labels = np.array(test_labels, dtype=int)
 
-    # nitialize/train neural network
+    # initialize/train neural network
     print("NEURAL NETWORK: Training...")
     start_time = time.time()
     nn = face_nueral.NeuralNetwork(training_data.shape[1], 300, 2)
@@ -99,7 +99,7 @@ def train_and_evaluate_naive_bayes():
     print("\nNAIVE BAYES - Faces")
     print("---------------------")
 
-    # Define paths
+    # paths
     face_paths = {
         'train_images': 'data/facedata/facedatatrain',
         'train_labels': 'data/facedata/facedatatrainlabels',
@@ -109,40 +109,40 @@ def train_and_evaluate_naive_bayes():
         'test_labels': 'data/facedata/facedatatestlabels'
     }
 
-    # Load and prepare training data
+    # load/process training data
     print("Loading and preparing training data...")
     train_images, train_labels = load_data_and_labels(face_paths['train_images'], face_paths['train_labels'], 70)
     train_data = [{i: int(pixel) for i, pixel in enumerate(image)} for image in flatten_images(train_images)]
 
-    # Load and prepare validation data
+    # load/process validation data
     print("Loading and preparing validation data...")
     validation_images, validation_labels = load_data_and_labels(face_paths['validation_images'], face_paths['validation_labels'], 70)
     validation_data = [{i: int(pixel) for i, pixel in enumerate(image)} for image in flatten_images(validation_images)]
 
-    # Load and prepare test data
+    # load/process test data
     print("Loading and preparing test data...")
     test_images, test_labels = load_data_and_labels(face_paths['test_images'], face_paths['test_labels'], 70)
     test_data = [{i: int(pixel) for i, pixel in enumerate(image)} for image in flatten_images(test_images)]
 
-    # Initialize the Naive Bayes classifier
+    # initialize classifier
     print("Initializing Naive Bayes Classifier for Face Data...")
     nb_classifier = NaiveBayesClassifier(legalLabels=[str(i) for i in range(2)])  # Assuming labels '0' and '1'
 
-    # Training the classifier
+    # training the classifier
     start_time = time.time()
     print("Training Naive Bayes Classifier for Face Data...")
     nb_classifier.train(train_data, train_labels)
     training_time = time.time() - start_time
     print(f"Naive Bayes: Training Completed (Training time: {training_time:.2f}s)")
 
-    # Validate the classifier
+    # validate classifier
     print("Validating Naive Bayes Classifier for Face Data...")
     validation_predictions = nb_classifier.classify(validation_data)
     validation_accuracy = sum(int(pred == true) for pred, true in zip(validation_predictions, validation_labels)) / len(validation_labels)
     elapsed_time = time.time() - start_time
     print(f"Validation Accuracy: {validation_accuracy * 100:.2f}% (Elapsed time: {elapsed_time:.2f}s)")
 
-    # Test the classifier
+    # test the classifier
     print("Testing Naive Bayes Classifier for Face Data...")
     test_predictions = nb_classifier.classify(test_data)
     test_accuracy = sum(int(pred == true) for pred, true in zip(test_predictions, test_labels)) / len(test_labels)

@@ -81,7 +81,7 @@ def main():
     test_data = [{i: int(pixel) for i, pixel in enumerate(image)} for image in flatten_images(test_images)]
 
     # initialize the Naive Bayes classifier with possible face labels
-    nb_classifier = NaiveBayesClassifier(legalLabels=[str(i) for i in range(2)])  # Assuming labels '0' and '1'
+    nb_classifier = NaiveBayesClassifier(legalLabels=[str(i) for i in range(2)])  # assuming labels '0' and '1'
 
     # training
     print("Training Naive Bayes Classifier for Face Data...")

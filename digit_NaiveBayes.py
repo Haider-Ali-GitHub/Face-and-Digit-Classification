@@ -80,7 +80,7 @@ def main():
     test_data = [{i: int(pixel) for i, pixel in enumerate(image)} for image in flatten_images(test_images)]
 
     # initialize the Naive Bayes classifier with possible digit labels
-    nb_classifier = NaiveBayesClassifier(legalLabels=[str(i) for i in range(10)])  # Labels are strings from '0' to '9'
+    nb_classifier = NaiveBayesClassifier(legalLabels=[str(i) for i in range(10)])  # labels are strings from '0' to '9'
 
     # training
     print("Training Naive Bayes Classifier...")
